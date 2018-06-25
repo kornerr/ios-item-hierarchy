@@ -40,6 +40,8 @@
 		9F2A396620E127D5005A60DA /* SectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2A396220E127D4005A60DA /* SectionsView.swift */; };
 		9F2A396720E127D5005A60DA /* SectionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A396320E127D4005A60DA /* SectionsView.xib */; };
 		9F2A396820E127D5005A60DA /* SectionsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A396420E127D5005A60DA /* SectionsItemView.xib */; };
+		9F2A397120E12B73005A60DA /* SampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2A396F20E12B73005A60DA /* SampleVC.swift */; };
+		9F2A397420E13349005A60DA /* SampleVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A397320E13349005A60DA /* SampleVC.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,8 @@
 		9F2A396220E127D4005A60DA /* SectionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionsView.swift; sourceTree = "<group>"; };
 		9F2A396320E127D4005A60DA /* SectionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionsView.xib; sourceTree = "<group>"; };
 		9F2A396420E127D5005A60DA /* SectionsItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionsItemView.xib; sourceTree = "<group>"; };
+		9F2A396F20E12B73005A60DA /* SampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleVC.swift; sourceTree = "<group>"; };
+		9F2A397320E13349005A60DA /* SampleVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleVC.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				9F2A395F20E127CC005A60DA /* SampleCoordinator.swift */,
+				9F2A396F20E12B73005A60DA /* SampleVC.swift */,
+				9F2A397320E13349005A60DA /* SampleVC.storyboard */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -265,6 +271,7 @@
 				9F2A395A20E127A3005A60DA /* Localizable.strings in Resources */,
 				9F2A391720E12451005A60DA /* Assets.xcassets in Resources */,
 				9F2A393420E12719005A60DA /* race.drell.png in Resources */,
+				9F2A397420E13349005A60DA /* SampleVC.storyboard in Resources */,
 				9F2A393320E12719005A60DA /* race.asari.png in Resources */,
 				9F2A393120E12719005A60DA /* race.turians.png in Resources */,
 				9F2A393220E12719005A60DA /* race.humans.jpg in Resources */,
@@ -301,6 +308,7 @@
 				9F2A391020E12450005A60DA /* AppDelegate.swift in Sources */,
 				9F2A395420E12740005A60DA /* CInterpolator.mm in Sources */,
 				9F2A394020E12728005A60DA /* UIView+Embed.swift in Sources */,
+				9F2A397120E12B73005A60DA /* SampleVC.swift in Sources */,
 				9F2A395120E12740005A60DA /* CCoverflowCollectionViewLayout.m in Sources */,
 				9F2A396620E127D5005A60DA /* SectionsView.swift in Sources */,
 				9F2A393C20E12728005A60DA /* UITableViewCellTemplate.swift in Sources */,

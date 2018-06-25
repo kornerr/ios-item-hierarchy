@@ -4,27 +4,27 @@ import UIKit
 class SampleCoordinator: Coordinator
 {
 
-    // MARK: - SETUP
-
     override init()
     {
         super.init()
         self.setupSample()
     }
 
-    // MARK: - SECTIONS
-
+    private var sampleVC: SampleVC!
     private var sectionsView: SectionsView!
 
     private func setupSample()
     {
+        let storyboard = UIStoryboard.init(name: "SampleVC", bundle: nil)
+        self.sampleVC = storyboard.instantiateViewController(withIdentifier: "SampleVC") as! SampleVC
+        //self.sampleVC = SampleVC()
+        self.rootVC = self.sampleVC
+
+        // Create sections.
         self.sectionsView = UIView.loadFromNib()
-        let vc = UIViewControllerTemplate(mainView: self.sectionsView)
-        vc.title = NSLocalizedString("CoverFlow.Title", comment: "")
+        self.sampleVC.sectionsView = self.sectionsView
 
         self.setupSectionItems()
-
-        self.rootVC = vc
     }
 
     private func setupSectionItems()
