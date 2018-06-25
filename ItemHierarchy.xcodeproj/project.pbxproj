@@ -89,6 +89,7 @@
 		9F2A396420E127D5005A60DA /* SectionsItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionsItemView.xib; sourceTree = "<group>"; };
 		9F2A396F20E12B73005A60DA /* SampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleVC.swift; sourceTree = "<group>"; };
 		9F2A397320E13349005A60DA /* SampleVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleVC.storyboard; sourceTree = "<group>"; };
+		9F2A397520E13749005A60DA /* SimpleBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleBlock.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +144,7 @@
 			children = (
 				9F2A394120E1272C005A60DA /* schwa-Coverflow */,
 				9F2A393820E12728005A60DA /* CBetterCollectionViewCellTemplate.swift */,
+				9F2A397520E13749005A60DA /* SimpleBlock.h */,
 				9F2A393520E12728005A60DA /* UICollectionViewCellTemplate.swift */,
 				9F2A393620E12728005A60DA /* UITableViewCellTemplate.swift */,
 				9F2A393A20E12728005A60DA /* UIView+Embed.swift */,

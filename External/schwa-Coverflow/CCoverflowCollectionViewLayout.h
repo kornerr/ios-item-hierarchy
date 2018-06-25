@@ -31,9 +31,16 @@
 
 #import <UIKit/UIKit.h>
 
+// ios-item-hierarchy MODIFICATION.
+#import "SimpleBlock.h"
+
 @interface CCoverflowCollectionViewLayout : UICollectionViewLayout
 @property (readwrite, nonatomic, assign) CGSize cellSize;
 @property (readwrite, nonatomic, assign) CGFloat cellSpacing;
 @property (readwrite, nonatomic, assign) BOOL snapToCells;
 @property (readonly, nonatomic, strong) NSIndexPath *currentIndexPath;
+
+// ios-item-hierarchy MODIFICATION.
+@property (copy, nonatomic) SimpleBlock currentIndexPathChanged;
+
 @end

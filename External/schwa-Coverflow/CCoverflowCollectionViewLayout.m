@@ -43,6 +43,9 @@
 @property (readwrite, nonatomic, strong) NSIndexPath *currentIndexPath;
 @property (readwrite, nonatomic, strong) NSIndexPath *savedCenterIndexPath;
 
+// ios-item-hierarchy MODIFICATION.
+@property (readwrite, nonatomic, strong) NSIndexPath *previousIndexPath;
+
 @property (readwrite, nonatomic, assign) CGFloat centerOffset;
 @property (readwrite, nonatomic, assign) NSInteger cellCount;
 @property (readwrite, nonatomic, strong) CInterpolator *scaleInterpolator;
@@ -180,16 +183,23 @@
 		{
 		self.currentIndexPath = indexPath;
 
-        /*
-        // TODO REMOVE after testing
-        NSLog(
-            @"CCoverflowCollectionViewLayout "
-            @"Current index path: (%d, %d)",
-            self.currentIndexPath.row,
-            self.currentIndexPath.section
-        );
-        */
- 
+        // ios-item-hierarchy MODIFICATION.
+        // Only report if
+        // * there's a listener
+        // * index path changed
+        bool report =
+            self.currentIndexPathChanged &&
+            (
+                self.currentIndexPath.row != self.previousIndexPath.row ||
+                self.currentIndexPath.section != self.previousIndexPath.section
+            );
+
+        if (report)
+        {
+            self.currentIndexPathChanged();
+        }
+            self.previousIndexPath = self.currentIndexPath;
+
 		}
 
 	// #########################################################################
@@ -243,26 +253,6 @@
         theTargetContentOffset.x = round(theTargetContentOffset.x / self.cellSpacing) * self.cellSpacing;
         theTargetContentOffset.x = MIN(theTargetContentOffset.x, (self.cellCount - 1) * self.cellSpacing);
         }
-
-    /*
-    // TODO REMOVE after testing.
-    NSLog(
-        @"CCoverflowCollectionViewLayout "
-        @"Proposed target content offset: (%f, %f) velocity: (%f, %f)",
-        proposedContentOffset.x, 
-        proposedContentOffset.y,
-        velocity.x,
-        velocity.y
-    );
-    NSLog(
-        @"CCoverflowCollectionViewLayout "
-        @"Target content offset: (%f, %f)",
-        theTargetContentOffset.x, 
-        theTargetContentOffset.y
-    );
-    */
-
-
     return(theTargetContentOffset);
     }
 

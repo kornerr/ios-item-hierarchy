@@ -10,6 +10,7 @@ class SectionsView: UIView, UICollectionViewDataSource
     {
         super.awakeFromNib()
         self.setupCollectionView()
+        self.setupItemSelection()
     }
 
     // MARK: - ITEMS
@@ -33,7 +34,7 @@ class SectionsView: UIView, UICollectionViewDataSource
         // Display items.
         self.collectionView.reloadData()
     }
-
+    
     // MARK: - COLLECTION VIEW
 
     @IBOutlet private var collectionView: UICollectionView!
@@ -80,6 +81,41 @@ class SectionsView: UIView, UICollectionViewDataSource
         cell.itemView.image = item.image
         return cell
     }
+
+    // MARK: - TITLE
+    
+    @IBOutlet private var titleLabel: UILabel!
+
+    private func updateTitle()
+    {
+        let id = self.collectionViewLayout.currentIndexPath.row
+        let title =
+            self.items.count > id ?
+            self.items[id].title :
+            NSLocalizedString("SectionsView.Title.Undefined", comment: "")
+        self.titleLabel.text = title.uppercased()
+    }
+
+    // MARK: - ITEM SELECTION
+
+    var selectedItemChanged: SimpleCallback?
+    
+    private func setupItemSelection()
+    {
+        self.collectionViewLayout.currentIndexPathChanged = { [weak self] in
+            guard let this = self else { return }
+
+            NSLog("Current index: '\(this.collectionViewLayout.currentIndexPath.row)'")
+
+            this.updateTitle()
+            // Report selection.
+            if let report = this.selectedItemChanged
+            {
+                report()
+            }
+        }
+    }
+
 
 }
 

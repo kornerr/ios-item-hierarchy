@@ -35,6 +35,6 @@ class SampleVC: UIViewController
 
     // MARK: - CATEGORIES
 
-    @IBOutlet private var categoriesContainerView: UIView!
+    @IBOutlet private var categoriesContainerView: UIView?
     
 }
