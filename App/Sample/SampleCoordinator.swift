@@ -17,7 +17,6 @@ class SampleCoordinator: Coordinator
     {
         let storyboard = UIStoryboard.init(name: "SampleVC", bundle: nil)
         self.sampleVC = storyboard.instantiateViewController(withIdentifier: "SampleVC") as! SampleVC
-        //self.sampleVC = SampleVC()
         self.rootVC = self.sampleVC
 
         // Create sections.
@@ -25,6 +24,14 @@ class SampleCoordinator: Coordinator
         self.sampleVC.sectionsView = self.sectionsView
 
         self.setupSectionItemsWithoutImages()
+
+        // Display skeletonable collection view only after VC has been loaded.
+        self.sampleVC.vcLoaded = { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self?.sectionsView.showAnimatedGradientSkeleton()
+            }
+        }
+
     }
 
     private func setupSectionItems()

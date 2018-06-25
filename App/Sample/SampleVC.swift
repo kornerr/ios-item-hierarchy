@@ -4,10 +4,18 @@ import UIKit
 class SampleVC: UIViewController
 {
 
+    // MARK: - SETUP
+
+    var vcLoaded: SimpleCallback?
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
         self.updateSectionsView()
+        if let report = self.vcLoaded
+        {
+            report()
+        }
     }
     
     // MARK: - SECTIONS VIEW
