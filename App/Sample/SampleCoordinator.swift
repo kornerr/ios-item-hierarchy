@@ -24,7 +24,7 @@ class SampleCoordinator: Coordinator
         self.sectionsView = UIView.loadFromNib()
         self.sampleVC.sectionsView = self.sectionsView
 
-        self.setupSectionItems()
+        self.setupSectionItemsWithoutImages()
     }
 
     private func setupSectionItems()
@@ -70,6 +70,24 @@ class SampleCoordinator: Coordinator
         ]
         // TODO Set images later through DispatchQueue to simulate their loading.
     }
+
+    private func setupSectionItemsWithoutImages()
+    {
+        // Use MassEffect races as sections: http://masseffect.wikia.com/wiki/Races
+        self.sectionsView.items = [
+            SectionsItem("Asari"),
+            SectionsItem("Drell"),
+            SectionsItem("Elcor"),
+            SectionsItem("Hanar"),
+            SectionsItem("Humans"),
+            SectionsItem("Keepers"),
+            SectionsItem("Salarians"),
+            SectionsItem("Turians"),
+            SectionsItem("Volus"),
+        ]
+        // TODO Set images later through DispatchQueue to simulate their loading.
+    }
+
 
 }
 

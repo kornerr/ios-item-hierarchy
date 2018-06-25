@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50FBE1FAA345AA3558C1B8DA /* Pods_ItemHierarchy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA6DCF73A4226AD832EC22C /* Pods_ItemHierarchy.framework */; };
 		9F2A391020E12450005A60DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2A390F20E12450005A60DA /* AppDelegate.swift */; };
 		9F2A391720E12451005A60DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A391620E12451005A60DA /* Assets.xcassets */; };
 		9F2A391A20E12451005A60DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A391820E12451005A60DA /* LaunchScreen.storyboard */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BA6DCF73A4226AD832EC22C /* Pods_ItemHierarchy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItemHierarchy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F2A390C20E12450005A60DA /* ItemHierarchy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItemHierarchy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F2A390F20E12450005A60DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F2A391620E12451005A60DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +92,8 @@
 		9F2A396F20E12B73005A60DA /* SampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleVC.swift; sourceTree = "<group>"; };
 		9F2A397320E13349005A60DA /* SampleVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleVC.storyboard; sourceTree = "<group>"; };
 		9F2A397520E13749005A60DA /* SimpleBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleBlock.h; sourceTree = "<group>"; };
+		D551FCCEBDDB227CD625BC43 /* Pods-ItemHierarchy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemHierarchy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy.debug.xcconfig"; sourceTree = "<group>"; };
+		E3D7172CBC371BB0CA621BFF /* Pods-ItemHierarchy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemHierarchy.release.xcconfig"; path = "Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +101,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50FBE1FAA345AA3558C1B8DA /* Pods_ItemHierarchy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D6C866E3D13A6A61A449661 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D551FCCEBDDB227CD625BC43 /* Pods-ItemHierarchy.debug.xcconfig */,
+				E3D7172CBC371BB0CA621BFF /* Pods-ItemHierarchy.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9F2A390320E12450005A60DA = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +125,8 @@
 				9F2A390E20E12450005A60DA /* App */,
 				9F2A392220E12703005A60DA /* Images */,
 				9F2A390D20E12450005A60DA /* Products */,
+				2D6C866E3D13A6A61A449661 /* Pods */,
+				F6BCF191C68D208D527EFD59 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -210,6 +226,14 @@
 			path = Sample;
 			sourceTree = "<group>";
 		};
+		F6BCF191C68D208D527EFD59 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1BA6DCF73A4226AD832EC22C /* Pods_ItemHierarchy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -217,9 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F2A391E20E12451005A60DA /* Build configuration list for PBXNativeTarget "ItemHierarchy" */;
 			buildPhases = (
+				F97F14F7EA0FA89465D85235 /* [CP] Check Pods Manifest.lock */,
 				9F2A390820E12450005A60DA /* Sources */,
 				9F2A390920E12450005A60DA /* Frameworks */,
 				9F2A390A20E12450005A60DA /* Resources */,
+				3462C336EEC9C3052AA9A582 /* [CP] Embed Pods Frameworks */,
+				3FEA58BB9D531B9507D466B6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -288,6 +315,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3462C336EEC9C3052AA9A582 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3FEA58BB9D531B9507D466B6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F97F14F7EA0FA89465D85235 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ItemHierarchy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9F2A390820E12450005A60DA /* Sources */ = {
@@ -447,16 +528,14 @@
 		};
 		9F2A391F20E12451005A60DA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D551FCCEBDDB227CD625BC43 /* Pods-ItemHierarchy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = su.kornerr.ItemHierarchy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ItemHierarchy-Bridging-Header.h";
@@ -468,16 +547,14 @@
 		};
 		9F2A392020E12451005A60DA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3D7172CBC371BB0CA621BFF /* Pods-ItemHierarchy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = su.kornerr.ItemHierarchy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ItemHierarchy-Bridging-Header.h";
