@@ -15,6 +15,7 @@ class SectionsView:
         self.setupCollectionView()
         self.setupItemSelection()
         self.setupSkeletonView()
+        self.updateTitle()
     }
 
     // MARK: - ITEMS
@@ -37,12 +38,14 @@ class SectionsView:
     {
         // Display items.
         self.collectionView.reloadData()
+
+        self.updateTitle()
     }
     
     // MARK: - COLLECTION VIEW
 
     @IBOutlet private var collectionView: UICollectionView!
-    private var collectionViewLayout: CCoverflowCollectionViewLayout!
+    private var collectionViewLayout: CCoverflowCollectionViewLayout?
 
     private func setupCollectionView()
     {
@@ -50,7 +53,7 @@ class SectionsView:
         self.collectionView.dataSource = self
         
         self.collectionViewLayout = CCoverflowCollectionViewLayout()
-        self.collectionView.collectionViewLayout = self.collectionViewLayout
+        self.collectionView.collectionViewLayout = self.collectionViewLayout!
     }
     
     func collectionView(
@@ -90,7 +93,12 @@ class SectionsView:
 
     func setupSkeletonView()
     {
-        self.isSkeletonable = true
+        self.collectionView.isSkeletonable = true
+    }
+
+    func showSkeletonView()
+    {
+        self.collectionView.showAnimatedGradientSkeleton()
     }
 
     func collectionSkeletonView(
@@ -102,28 +110,34 @@ class SectionsView:
 
     // MARK: - TITLE
     
-    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var titleLabel: UILabel?
 
     private func updateTitle()
     {
-        let id = self.collectionViewLayout.currentIndexPath.row
         let title =
-            self.items.count > id ?
-            self.items[id].title :
+            self.items.count > self.selectedItemId ?
+            self.items[self.selectedItemId].title :
             NSLocalizedString("SectionsView.Title.Undefined", comment: "")
-        self.titleLabel.text = title.uppercased()
+        self.titleLabel?.text = title.uppercased()
     }
 
     // MARK: - ITEM SELECTION
 
+    var selectedItemId: Int
+    {
+        get
+        {
+            return self.collectionViewLayout?.currentIndexPath?.row ?? 0
+        }
+    }
     var selectedItemChanged: SimpleCallback?
     
     private func setupItemSelection()
     {
-        self.collectionViewLayout.currentIndexPathChanged = { [weak self] in
+        self.collectionViewLayout?.currentIndexPathChanged = { [weak self] in
             guard let this = self else { return }
 
-            NSLog("Current index: '\(this.collectionViewLayout.currentIndexPath.row)'")
+            NSLog("Current index: '\(this.selectedItemId)'")
 
             this.updateTitle()
             // Report selection.

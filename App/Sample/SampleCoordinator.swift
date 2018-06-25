@@ -23,13 +23,12 @@ class SampleCoordinator: Coordinator
         self.sectionsView = UIView.loadFromNib()
         self.sampleVC.sectionsView = self.sectionsView
 
-        self.setupSectionItemsWithoutImages()
+        //self.setupSectionItemsWithoutImages()
+        self.setupSectionItems()
 
-        // Display skeletonable collection view only after VC has been loaded.
-        self.sampleVC.vcLoaded = { [weak self] in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self?.sectionsView.showAnimatedGradientSkeleton()
-            }
+        // Display skeleton view after some delay.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            self.sectionsView.showSkeletonView()
         }
 
     }
