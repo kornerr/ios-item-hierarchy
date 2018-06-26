@@ -104,11 +104,13 @@
 //		@(-1.0f):               @(0.0f),
 //		}] interpolatorWithReflection:NO];
 
-	self.darknessInterpolator = [[CInterpolator interpolatorWithDictionary:@{
-		@(-2.5f): @(0.5f),
-		@(-0.5f): @(0.0f),
-		}] interpolatorWithReflection:NO];
-	}
+// ios-item-hierarchy MODIFICATION.
+
+//	self.darknessInterpolator = [[CInterpolator interpolatorWithDictionary:@{
+//		@(-2.5f): @(0.5f),
+//		@(-0.5f): @(0.0f),
+//		}] interpolatorWithReflection:NO];
+}
 
 - (void)prepareLayout
     {
@@ -227,7 +229,9 @@
 
 	// #########################################################################
 
-	theAttributes.shieldAlpha = [self.darknessInterpolator interpolatedValueForKey:theDelta];
+    // ios-item-hierarchy MODIFICATION.
+	//theAttributes.shieldAlpha = [self.darknessInterpolator interpolatedValueForKey:theDelta];
+	theAttributes.shieldAlpha = 0.0;
 
     theAttributes.zIndex = self.cellCount - labs(self.currentIndexPath.row-indexPath.row);
 

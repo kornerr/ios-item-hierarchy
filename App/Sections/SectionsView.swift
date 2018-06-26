@@ -1,6 +1,11 @@
 
 import UIKit
 
+private func SECTIONS_VIEW_LOG(_ message: String)
+{
+    NSLog("SectionsView \(message)")
+}
+
 class SectionsView:
     UIView,
     UICollectionViewDataSource
@@ -116,7 +121,7 @@ class SectionsView:
         self.collectionViewLayout?.currentIndexPathChanged = { [weak self] in
             guard let this = self else { return }
 
-            NSLog("Current index: '\(this.selectedItemId)'")
+            SECTIONS_VIEW_LOG("Current index: '\(this.selectedItemId)'")
 
             this.updateTitle()
             // Report selection.

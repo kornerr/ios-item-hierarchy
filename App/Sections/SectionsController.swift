@@ -1,4 +1,9 @@
 
+private func SECTIONS_CONTROLLER_LOG(_ message: String)
+{
+    NSLog("SectionsController \(message)")
+}
+
 class SectionsController
 {
 
@@ -138,11 +143,9 @@ class SectionsController
             let loadedItem = self.completelyLoadedItems.remove(at: 0)
             for id in 0..<self.items.count
             {
-                var item = self.items[id]
-                if item.title == loadedItem.title
+                if self.items[id].title == loadedItem.title
                 {
-                    item.image = loadedItem.image
-                    NSLog("Loaded image '\(item.image)' for item titled '\(item.title)'")
+                    self.items[id].image = loadedItem.image
                     self.reportItemsChanged()
                     break
                 }
