@@ -6,17 +6,11 @@ class SampleVC: UIViewController
 
     // MARK: - SETUP
 
-    var vcLoaded: SimpleCallback?
-
     override func viewDidLoad()
     {
         super.viewDidLoad()
         self.updateSectionsView()
         self.updateLoadingView()
-        if let report = self.vcLoaded
-        {
-            report()
-        }
     }
     
     // MARK: - SECTIONS VIEW
@@ -63,7 +57,8 @@ class SampleVC: UIViewController
     func updateLoadingView()
     {
         self.loadingContainerView?.embeddedView = self.loadingView
-        self.loadingContainerView?.isHidden = (self.loadingView == nil)
+        let isVisible = (self.loadingView != nil)
+        self.loadingContainerView?.setVisible(isVisible, animated: true)
     }
     
 }

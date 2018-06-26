@@ -4,3 +4,5 @@
 
 #import "CBetterCollectionViewCell.h"
 #import "CCoverflowCollectionViewLayout.h"
+
+#import "UIView+Visibility.h"

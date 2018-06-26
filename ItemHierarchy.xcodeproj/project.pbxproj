@@ -46,6 +46,7 @@
 		9F4FEF2F20E24CE900E95E77 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4FEF2D20E24CE900E95E77 /* LoadingView.swift */; };
 		9F4FEF3020E24CE900E95E77 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4FEF2E20E24CE900E95E77 /* LoadingView.xib */; };
 		9F4FEF3420E2602100E95E77 /* logo.cerberus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F4FEF3320E2602100E95E77 /* logo.cerberus.jpg */; };
+		9F4FEF3920E2635E00E95E77 /* UIView+Visibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4FEF3720E2635D00E95E77 /* UIView+Visibility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,8 @@
 		9F4FEF2D20E24CE900E95E77 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		9F4FEF2E20E24CE900E95E77 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		9F4FEF3320E2602100E95E77 /* logo.cerberus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.cerberus.jpg; sourceTree = "<group>"; };
+		9F4FEF3720E2635D00E95E77 /* UIView+Visibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Visibility.m"; sourceTree = "<group>"; };
+		9F4FEF3820E2635D00E95E77 /* UIView+Visibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Visibility.h"; sourceTree = "<group>"; };
 		D551FCCEBDDB227CD625BC43 /* Pods-ItemHierarchy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemHierarchy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy.debug.xcconfig"; sourceTree = "<group>"; };
 		E3D7172CBC371BB0CA621BFF /* Pods-ItemHierarchy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemHierarchy.release.xcconfig"; path = "Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +175,8 @@
 				9F2A393620E12728005A60DA /* UITableViewCellTemplate.swift */,
 				9F2A393A20E12728005A60DA /* UIView+Embed.swift */,
 				9F2A393720E12728005A60DA /* UIView+NibFile.swift */,
+				9F4FEF3820E2635D00E95E77 /* UIView+Visibility.h */,
+				9F4FEF3720E2635D00E95E77 /* UIView+Visibility.m */,
 				9F2A393920E12728005A60DA /* UIViewControllerTemplate.swift */,
 			);
 			path = External;
@@ -400,6 +405,7 @@
 				9F2A395020E12740005A60DA /* CBetterCollectionViewCell.m in Sources */,
 				9F2A393E20E12728005A60DA /* CBetterCollectionViewCellTemplate.swift in Sources */,
 				9F4FEF2F20E24CE900E95E77 /* LoadingView.swift in Sources */,
+				9F4FEF3920E2635E00E95E77 /* UIView+Visibility.m in Sources */,
 				9F2A395320E12740005A60DA /* CBetterCollectionViewLayoutAttributes.m in Sources */,
 				9F2A393F20E12728005A60DA /* UIViewControllerTemplate.swift in Sources */,
 				9F2A395C20E127A3005A60DA /* SimpleCallback.swift in Sources */,
