@@ -54,18 +54,18 @@ class SectionsController
 
     private func setupItemsWithStubImages()
     {
-        // Provide stub image before real one has been loaded.
-        let image = UIImage(named: "blurred.logo.cerberus.jpg")!
+        // Use placeholder image before real ones are available.
+        let placeholder = self.placeholderItemImage
         self.items = [
-            SectionsItem("Asari", image),
-            SectionsItem("Drell", image),
-            SectionsItem("Elcor", image),
-            SectionsItem("Hanar", image),
-            SectionsItem("Humans", image),
-            SectionsItem("Keepers", image),
-            SectionsItem("Salarians", image),
-            SectionsItem("Turians", image),
-            SectionsItem("Volus", image),
+            SectionsItem("Asari", placeholder),
+            SectionsItem("Drell", placeholder),
+            SectionsItem("Elcor", placeholder),
+            SectionsItem("Hanar", placeholder),
+            SectionsItem("Humans", placeholder),
+            SectionsItem("Keepers", placeholder),
+            SectionsItem("Salarians", placeholder),
+            SectionsItem("Turians", placeholder),
+            SectionsItem("Volus", placeholder),
         ]
         // Report items.
         if let report = self.itemsChanged

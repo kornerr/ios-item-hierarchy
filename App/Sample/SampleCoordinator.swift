@@ -23,6 +23,8 @@ class SampleCoordinator: Coordinator
     {
         self.sectionsView = UIView.loadFromNib()
         self.sectionsController = SectionsController()
+        let placeholder = UIImage(named: "blurred.logo.cerberus.jpg")!
+        self.sectionsController.placeholderItemImage = placeholder
     }
 
     // MARK: - LOADING
