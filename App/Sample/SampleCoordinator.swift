@@ -4,119 +4,67 @@ import UIKit
 class SampleCoordinator: Coordinator
 {
 
+    // MARK: - SETUP
+
     override init()
     {
         super.init()
+        self.setupSections()
+        self.setupLoading()
         self.setupSample()
     }
 
-    private var sampleVC: SampleVC!
+    // MARK: - SECTIONS
+
     private var sectionsView: SectionsView!
+    private var sectionsController: SectionsController!
+
+    private func setupSections()
+    {
+        self.sectionsView = UIView.loadFromNib()
+        self.sectionsController = SectionsController()
+    }
+
+    // MARK: - LOADING
+
     private var loadingView: LoadingView!
 
-    private func setupSample()
+    private func setupLoading()
     {
-        let storyboard = UIStoryboard.init(name: "SampleVC", bundle: nil)
-        self.sampleVC = storyboard.instantiateViewController(withIdentifier: "SampleVC") as! SampleVC
-        self.rootVC = self.sampleVC
-
-        // Create sections.
-        self.sectionsView = UIView.loadFromNib()
-        self.sampleVC.sectionsView = self.sectionsView
-
-        // Create loading.
+        // Create loading view.
         self.loadingView = UIView.loadFromNib()
-        self.loadingView.image = UIImage(named: "logo.cerberus.jpg")!
         self.loadingView.title = "Loading"
+        self.loadingView.image = UIImage(named: "logo.cerberus.jpg")!
 
-        self.simulateLoading()
-    }
-
-    /*
-    private func setupSectionItems()
-    {
-        // Use MassEffect races as sections: http://masseffect.wikia.com/wiki/Races
-        self.sectionsView.items = [
-            SectionsItem(
-                "Asari",
-                UIImage(named: "race.asari.png")!
-            ),
-            SectionsItem(
-                "Drell",
-                UIImage(named: "race.drell.png")!
-            ),
-            SectionsItem(
-                "Elcor",
-                UIImage(named: "race.elcor.png")!
-            ),
-            SectionsItem(
-                "Hanar",
-                UIImage(named: "race.hanar.png")!
-            ),
-            SectionsItem(
-                "Humans",
-                UIImage(named: "race.humans.jpg")!
-            ),
-            SectionsItem(
-                "Keepers",
-                UIImage(named: "race.keeper.png")!
-            ),
-            SectionsItem(
-                "Salarians",
-                UIImage(named: "race.salarians.png")!
-            ),
-            SectionsItem(
-                "Turians",
-                UIImage(named: "race.turians.png")!
-            ),
-            SectionsItem(
-                "Volus",
-                UIImage(named: "race.volus.png")!
-            ),
-        ]
-    }
-    */
-
-    private func setupSectionItemsWithStubImages()
-    {
-        // Provide stub image before real one has been loaded.
-        let image = UIImage(named: "blurred.logo.cerberus.jpg")!
-        self.sectionsView.items = [
-            SectionsItem("Asari", image),
-            SectionsItem("Drell", image),
-            SectionsItem("Elcor", image),
-            SectionsItem("Hanar", image),
-            SectionsItem("Humans", image),
-            SectionsItem("Keepers", image),
-            SectionsItem("Salarians", image),
-            SectionsItem("Turians", image),
-            SectionsItem("Volus", image),
-        ]
-        // TODO Set images later through DispatchQueue to simulate their loading.
-    }
-
-    // MARK: - LOADING SIMULATION
-
-    private func simulateLoading()
-    {
-        // Display loading view.
-        self.sampleVC.loadingView = self.loadingView
-
-        // Load sections.
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            // Provide sections.
-            self.setupSectionItemsWithStubImages()
-            // Hide loading view.
-            self.sampleVC.loadingView = nil
-
-            // Go on.
-            self.simulateLoadingOfSectionImages()
+        // Display it when refreshing sections.
+        self.sectionsController.refreshItemsExecutionChanged = { [weak self] in
+            guard let this = self else { return }
+            let isExecuting = this.sectionsController.refreshItemsIsExecuting
+            this.sampleVC.loadingView = isExecuting ?  this.loadingView : nil
         }
     }
 
-    private func simulateLoadingOfSectionImages()
+    // MARK: - SAMPLE
+
+    private var sampleVC: SampleVC!
+
+    private func setupSample()
     {
-        // TODO
+        // Create Sample VC.
+        let storyboard = UIStoryboard.init(name: "SampleVC", bundle: nil)
+        self.sampleVC = storyboard.instantiateViewController(withIdentifier: "SampleVC") as! SampleVC
+        self.sampleVC.sectionsView = self.sectionsView
+        // Display it.
+        self.rootVC = self.sampleVC
+
+        // Display items when they are ready.
+        self.sectionsController.itemsChanged = { [weak self] in
+            guard let this = self else { return }
+            this.sectionsView.items = this.sectionsController.items
+        }
+
+        // Request items.
+        self.sectionsController.refreshItems()
     }
 
 }

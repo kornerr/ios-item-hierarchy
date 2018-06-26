@@ -48,6 +48,7 @@
 		9F4FEF3420E2602100E95E77 /* logo.cerberus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F4FEF3320E2602100E95E77 /* logo.cerberus.jpg */; };
 		9F4FEF3920E2635E00E95E77 /* UIView+Visibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4FEF3720E2635D00E95E77 /* UIView+Visibility.m */; };
 		9FCAF78420E271CF0022CEEE /* blurred.logo.cerberus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9FCAF78320E271CF0022CEEE /* blurred.logo.cerberus.jpg */; };
+		9FCAF78620E27A710022CEEE /* SectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCAF78520E27A710022CEEE /* SectionsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,7 @@
 		9F4FEF3720E2635D00E95E77 /* UIView+Visibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Visibility.m"; sourceTree = "<group>"; };
 		9F4FEF3820E2635D00E95E77 /* UIView+Visibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Visibility.h"; sourceTree = "<group>"; };
 		9FCAF78320E271CF0022CEEE /* blurred.logo.cerberus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blurred.logo.cerberus.jpg; sourceTree = "<group>"; };
+		9FCAF78520E27A710022CEEE /* SectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionsController.swift; sourceTree = "<group>"; };
 		D551FCCEBDDB227CD625BC43 /* Pods-ItemHierarchy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemHierarchy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy.debug.xcconfig"; sourceTree = "<group>"; };
 		E3D7172CBC371BB0CA621BFF /* Pods-ItemHierarchy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemHierarchy.release.xcconfig"; path = "Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -224,10 +226,11 @@
 		9F2A395D20E127AC005A60DA /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				9F2A396120E127D4005A60DA /* SectionsItemView.swift */,
-				9F2A396420E127D5005A60DA /* SectionsItemView.xib */,
+				9FCAF78520E27A710022CEEE /* SectionsController.swift */,
 				9F2A396220E127D4005A60DA /* SectionsView.swift */,
 				9F2A396320E127D4005A60DA /* SectionsView.xib */,
+				9F2A396120E127D4005A60DA /* SectionsItemView.swift */,
+				9F2A396420E127D5005A60DA /* SectionsItemView.xib */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				9F2A393F20E12728005A60DA /* UIViewControllerTemplate.swift in Sources */,
 				9F2A395C20E127A3005A60DA /* SimpleCallback.swift in Sources */,
 				9F2A396020E127CC005A60DA /* SampleCoordinator.swift in Sources */,
+				9FCAF78620E27A710022CEEE /* SectionsController.swift in Sources */,
 				9F2A393B20E12728005A60DA /* UICollectionViewCellTemplate.swift in Sources */,
 				9F2A395920E127A3005A60DA /* Coordinator.swift in Sources */,
 				9F2A395220E12740005A60DA /* CReflectionView.m in Sources */,
