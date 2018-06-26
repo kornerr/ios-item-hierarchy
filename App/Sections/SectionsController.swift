@@ -15,6 +15,16 @@ class SectionsController
     var items = [SectionsItem]()
     var itemsChanged: SimpleCallback?
 
+    private func reportItemsChanged()
+    {
+        if let report = self.itemsChanged
+        {
+            report()
+        }
+    }
+
+    // MARK: - ITEMS' REFRESH
+
     private(set) var refreshItemsIsExecuting: Bool
     {
         get
@@ -43,16 +53,16 @@ class SectionsController
         // Fake loading.
         self.refreshItemsIsExecuting = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.setupItemsWithStubImages()
+            self.setupItemsWithPlaceholderImages()
             self.refreshItemsIsExecuting = false
 
-            // TODO Load item images one by one.
+            self.loadMissingItemImages()
         }
     }
 
     // MARK: - STUBS
 
-    private func setupItemsWithStubImages()
+    private func setupItemsWithPlaceholderImages()
     {
         // Use placeholder image before real ones are available.
         let placeholder = self.placeholderItemImage
@@ -67,18 +77,17 @@ class SectionsController
             SectionsItem("Turians", placeholder),
             SectionsItem("Volus", placeholder),
         ]
-        // Report items.
-        if let report = self.itemsChanged
-        {
-            report()
-        }
+        self.reportItemsChanged()
     }
 
-    /*
-    private func setupSectionItems()
+    private var completelyLoadedItems = [SectionsItem]()
+
+    private func loadMissingItemImages()
     {
-        // Use MassEffect races as sections: http://masseffect.wikia.com/wiki/Races
-        self.sectionsView.items = [
+        // NOTE We actually replace placeholder items with "loaded" ones
+        // NOTE instead of loading images.
+        // NOTE We use MassEffect races as images: http://masseffect.wikia.com/wiki/Races
+        self.completelyLoadedItems = [
             SectionsItem(
                 "Asari",
                 UIImage(named: "race.asari.png")!
@@ -116,9 +125,32 @@ class SectionsController
                 UIImage(named: "race.volus.png")!
             ),
         ]
+        self.loadNextItem()
     }
-    */
 
+    private func loadNextItem()
+    {
+        // Make sure we have images to load.
+        guard !self.completelyLoadedItems.isEmpty else { return }
+
+        // "Load" the first image from the array.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let loadedItem = self.completelyLoadedItems.remove(at: 0)
+            for id in 0..<self.items.count
+            {
+                var item = self.items[id]
+                if item.title == loadedItem.title
+                {
+                    item.image = loadedItem.image
+                    NSLog("Loaded image '\(item.image)' for item titled '\(item.title)'")
+                    self.reportItemsChanged()
+                    break
+                }
+            }
+
+            self.loadNextItem()
+        }
+    }
 
 }
 
