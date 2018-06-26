@@ -56,7 +56,12 @@ class SampleVC: UIViewController
 
     func updateLoadingView()
     {
-        self.loadingContainerView?.embeddedView = self.loadingView
+        // NOTE We do not remove embedded view because it's ugly
+        // NOTE for animated visibility change.
+        if let view = self.loadingView
+        {
+            self.loadingContainerView?.embeddedView = view
+        }
         let isVisible = (self.loadingView != nil)
         self.loadingContainerView?.setVisible(isVisible, animated: true)
     }

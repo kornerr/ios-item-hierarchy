@@ -28,14 +28,8 @@ class SampleCoordinator: Coordinator
         self.loadingView = UIView.loadFromNib()
         self.loadingView.image = UIImage(named: "logo.cerberus.jpg")!
         self.loadingView.title = "Loading"
-        // Display it.
-        self.sampleVC.loadingView = self.loadingView
 
-        // TODO Hide loading view once data is available.
-
-        //self.setupSectionItemsWithoutImages()
-        //self.setupSectionItems()
-
+        self.simulateLoading()
     }
 
     private func setupSectionItems()
@@ -99,6 +93,21 @@ class SampleCoordinator: Coordinator
         // TODO Set images later through DispatchQueue to simulate their loading.
     }
 
+    // MARK: - LOADING SIMULATION
+
+    private func simulateLoading()
+    {
+        // Display loading view.
+        self.sampleVC.loadingView = self.loadingView
+
+        // Load sections.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.setupSectionItemsWithoutImages()
+            // Hide loading view.
+            self.sampleVC.loadingView = nil
+            // TODO Proceed with the script?
+        }
+    }
 
 }
 
