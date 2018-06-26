@@ -32,6 +32,7 @@ class SampleCoordinator: Coordinator
         self.simulateLoading()
     }
 
+    /*
     private func setupSectionItems()
     {
         // Use MassEffect races as sections: http://masseffect.wikia.com/wiki/Races
@@ -73,22 +74,23 @@ class SampleCoordinator: Coordinator
                 UIImage(named: "race.volus.png")!
             ),
         ]
-        // TODO Set images later through DispatchQueue to simulate their loading.
     }
+    */
 
-    private func setupSectionItemsWithoutImages()
+    private func setupSectionItemsWithStubImages()
     {
-        // Use MassEffect races as sections: http://masseffect.wikia.com/wiki/Races
+        // Provide stub image before real one has been loaded.
+        let image = UIImage(named: "blurred.logo.cerberus.jpg")!
         self.sectionsView.items = [
-            SectionsItem("Asari"),
-            SectionsItem("Drell"),
-            SectionsItem("Elcor"),
-            SectionsItem("Hanar"),
-            SectionsItem("Humans"),
-            SectionsItem("Keepers"),
-            SectionsItem("Salarians"),
-            SectionsItem("Turians"),
-            SectionsItem("Volus"),
+            SectionsItem("Asari", image),
+            SectionsItem("Drell", image),
+            SectionsItem("Elcor", image),
+            SectionsItem("Hanar", image),
+            SectionsItem("Humans", image),
+            SectionsItem("Keepers", image),
+            SectionsItem("Salarians", image),
+            SectionsItem("Turians", image),
+            SectionsItem("Volus", image),
         ]
         // TODO Set images later through DispatchQueue to simulate their loading.
     }
@@ -102,11 +104,19 @@ class SampleCoordinator: Coordinator
 
         // Load sections.
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.setupSectionItemsWithoutImages()
+            // Provide sections.
+            self.setupSectionItemsWithStubImages()
             // Hide loading view.
             self.sampleVC.loadingView = nil
-            // TODO Proceed with the script?
+
+            // Go on.
+            self.simulateLoadingOfSectionImages()
         }
+    }
+
+    private func simulateLoadingOfSectionImages()
+    {
+        // TODO
     }
 
 }

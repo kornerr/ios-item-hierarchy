@@ -47,6 +47,7 @@
 		9F4FEF3020E24CE900E95E77 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4FEF2E20E24CE900E95E77 /* LoadingView.xib */; };
 		9F4FEF3420E2602100E95E77 /* logo.cerberus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F4FEF3320E2602100E95E77 /* logo.cerberus.jpg */; };
 		9F4FEF3920E2635E00E95E77 /* UIView+Visibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4FEF3720E2635D00E95E77 /* UIView+Visibility.m */; };
+		9FCAF78420E271CF0022CEEE /* blurred.logo.cerberus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9FCAF78320E271CF0022CEEE /* blurred.logo.cerberus.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		9F4FEF3320E2602100E95E77 /* logo.cerberus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.cerberus.jpg; sourceTree = "<group>"; };
 		9F4FEF3720E2635D00E95E77 /* UIView+Visibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Visibility.m"; sourceTree = "<group>"; };
 		9F4FEF3820E2635D00E95E77 /* UIView+Visibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Visibility.h"; sourceTree = "<group>"; };
+		9FCAF78320E271CF0022CEEE /* blurred.logo.cerberus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blurred.logo.cerberus.jpg; sourceTree = "<group>"; };
 		D551FCCEBDDB227CD625BC43 /* Pods-ItemHierarchy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemHierarchy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy.debug.xcconfig"; sourceTree = "<group>"; };
 		E3D7172CBC371BB0CA621BFF /* Pods-ItemHierarchy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemHierarchy.release.xcconfig"; path = "Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +187,7 @@
 		9F2A392220E12703005A60DA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9FCAF78320E271CF0022CEEE /* blurred.logo.cerberus.jpg */,
 				9F4FEF3320E2602100E95E77 /* logo.cerberus.jpg */,
 				9F2A392A20E12718005A60DA /* race.asari.png */,
 				9F2A392B20E12718005A60DA /* race.drell.png */,
@@ -326,6 +329,7 @@
 				9F2A393320E12719005A60DA /* race.asari.png in Resources */,
 				9F2A393120E12719005A60DA /* race.turians.png in Resources */,
 				9F4FEF3420E2602100E95E77 /* logo.cerberus.jpg in Resources */,
+				9FCAF78420E271CF0022CEEE /* blurred.logo.cerberus.jpg in Resources */,
 				9F2A393220E12719005A60DA /* race.humans.jpg in Resources */,
 				9F2A396720E127D5005A60DA /* SectionsView.xib in Resources */,
 				9F4FEF3020E24CE900E95E77 /* LoadingView.xib in Resources */,
