@@ -12,8 +12,32 @@ class LoadingView: UIView
         self.updateSpinnerColor()
         self.updateTitleColor()
         self.updateTitleText()
+        self.updateImage()
     }
+    
+    // MARK: - IMAGE
+    
+    var image: UIImage?
+    {
+        get
+        {
+            return _image
+        }
+        set
+        {
+            _image = newValue
+            self.updateImage()
+        }
+    }
+    private var _image: UIImage?
 
+    @IBOutlet private var imageView: UIImageView!
+
+    private func updateImage()
+    {
+        self.imageView.image = self.image
+    }
+    
     // MARK: - COLOR
 
     var color: UIColor

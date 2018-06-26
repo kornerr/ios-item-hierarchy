@@ -55,7 +55,7 @@
                         <viewLayoutGuide key="safeArea" id="SMD-tG-O2v"/>
                     </view>
                     <connections>
-                        <outlet property="loadingContainerView" destination="vhH-fW-1Ob" id="fsR-qG-hJH"/>
+                        <outlet property="loadingContainerView" destination="vhH-fW-1Ob" id="0OW-ud-C4o"/>
                         <outlet property="sectionsContainerView" destination="vPk-jT-LaL" id="Nxw-EK-pei"/>
                     </connections>
                 </viewController>

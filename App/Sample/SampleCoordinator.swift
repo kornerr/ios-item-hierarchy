@@ -26,13 +26,14 @@ class SampleCoordinator: Coordinator
 
         // Create loading.
         self.loadingView = UIView.loadFromNib()
+        self.loadingView.image = UIImage(named: "logo.cerberus.jpg")!
         self.loadingView.title = "Loading"
         // Display it.
         self.sampleVC.loadingView = self.loadingView
 
         // TODO Hide loading view once data is available.
 
-        self.setupSectionItemsWithoutImages()
+        //self.setupSectionItemsWithoutImages()
         //self.setupSectionItems()
 
     }
