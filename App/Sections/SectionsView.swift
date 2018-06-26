@@ -1,10 +1,9 @@
 
-import SkeletonView
 import UIKit
 
 class SectionsView:
     UIView,
-    SkeletonCollectionViewDataSource /*UICollectionViewDataSource*/
+    UICollectionViewDataSource
 {
 
     // MARK: - SETUP
@@ -14,7 +13,6 @@ class SectionsView:
         super.awakeFromNib()
         self.setupCollectionView()
         self.setupItemSelection()
-        self.setupSkeletonView()
         self.updateTitle()
     }
 
@@ -87,25 +85,6 @@ class SectionsView:
         let item = self.items[indexPath.row]
         cell.itemView.image = item.image
         return cell
-    }
-
-    // MARK: - SKELETON VIEW SUPPORT
-
-    func setupSkeletonView()
-    {
-        self.collectionView.isSkeletonable = true
-    }
-
-    func showSkeletonView()
-    {
-        self.collectionView.showAnimatedGradientSkeleton()
-    }
-
-    func collectionSkeletonView(
-        _ skeletonView: UICollectionView,
-        cellIdentifierForItemAt indexPath: IndexPath
-    ) -> ReusableCellIdentifier {
-        return CellId
     }
 
     // MARK: - TITLE

@@ -23,13 +23,8 @@ class SampleCoordinator: Coordinator
         self.sectionsView = UIView.loadFromNib()
         self.sampleVC.sectionsView = self.sectionsView
 
-        //self.setupSectionItemsWithoutImages()
-        self.setupSectionItems()
-
-        // Display skeleton view after some delay.
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-            self.sectionsView.showSkeletonView()
-        }
+        self.setupSectionItemsWithoutImages()
+        //self.setupSectionItems()
 
     }
 
