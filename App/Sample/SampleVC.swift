@@ -12,6 +12,7 @@ class SampleVC: UIViewController
     {
         super.viewDidLoad()
         self.updateSectionsView()
+        self.updateLoadingView()
         if let report = self.vcLoaded
         {
             report()
@@ -41,8 +42,28 @@ class SampleVC: UIViewController
         self.sectionsContainerView?.embeddedView = self.sectionsView
     }
 
-    // MARK: - CATEGORIES
+    // MARK: - LOADING
 
-    @IBOutlet private var categoriesContainerView: UIView?
+    @IBOutlet private var loadingContainerView: UIView?
+
+    var loadingView: UIView?
+    {
+        get
+        {
+            return _loadingView
+        }
+        set
+        {
+            _loadingView = newValue
+            self.updateLoadingView()
+        }
+    }
+    private var _loadingView: UIView?
+
+    func updateLoadingView()
+    {
+        self.loadingContainerView?.embeddedView = self.loadingView
+        self.loadingContainerView?.isHidden = (self.loadingView == nil)
+    }
     
 }

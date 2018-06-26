@@ -12,6 +12,7 @@ class SampleCoordinator: Coordinator
 
     private var sampleVC: SampleVC!
     private var sectionsView: SectionsView!
+    private var loadingView: LoadingView!
 
     private func setupSample()
     {
@@ -22,6 +23,14 @@ class SampleCoordinator: Coordinator
         // Create sections.
         self.sectionsView = UIView.loadFromNib()
         self.sampleVC.sectionsView = self.sectionsView
+
+        // Create loading.
+        self.loadingView = UIView.loadFromNib()
+        self.loadingView.title = "Loading"
+        // Display it.
+        self.sampleVC.loadingView = self.loadingView
+
+        // TODO Hide loading view once data is available.
 
         self.setupSectionItemsWithoutImages()
         //self.setupSectionItems()

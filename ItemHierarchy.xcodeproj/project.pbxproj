@@ -43,6 +43,8 @@
 		9F2A396820E127D5005A60DA /* SectionsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A396420E127D5005A60DA /* SectionsItemView.xib */; };
 		9F2A397120E12B73005A60DA /* SampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2A396F20E12B73005A60DA /* SampleVC.swift */; };
 		9F2A397420E13349005A60DA /* SampleVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A397320E13349005A60DA /* SampleVC.storyboard */; };
+		9F4FEF2F20E24CE900E95E77 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4FEF2D20E24CE900E95E77 /* LoadingView.swift */; };
+		9F4FEF3020E24CE900E95E77 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4FEF2E20E24CE900E95E77 /* LoadingView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +94,8 @@
 		9F2A396F20E12B73005A60DA /* SampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleVC.swift; sourceTree = "<group>"; };
 		9F2A397320E13349005A60DA /* SampleVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleVC.storyboard; sourceTree = "<group>"; };
 		9F2A397520E13749005A60DA /* SimpleBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleBlock.h; sourceTree = "<group>"; };
+		9F4FEF2D20E24CE900E95E77 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		9F4FEF2E20E24CE900E95E77 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		D551FCCEBDDB227CD625BC43 /* Pods-ItemHierarchy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemHierarchy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy.debug.xcconfig"; sourceTree = "<group>"; };
 		E3D7172CBC371BB0CA621BFF /* Pods-ItemHierarchy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemHierarchy.release.xcconfig"; path = "Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +145,7 @@
 		9F2A390E20E12450005A60DA /* App */ = {
 			isa = PBXGroup;
 			children = (
+				9F4FEF2C20E24C1900E95E77 /* Loading */,
 				9F2A395E20E127B2005A60DA /* Sample */,
 				9F2A395D20E127AC005A60DA /* Sections */,
 				9F2A390F20E12450005A60DA /* AppDelegate.swift */,
@@ -226,6 +231,15 @@
 			path = Sample;
 			sourceTree = "<group>";
 		};
+		9F4FEF2C20E24C1900E95E77 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				9F4FEF2D20E24CE900E95E77 /* LoadingView.swift */,
+				9F4FEF2E20E24CE900E95E77 /* LoadingView.xib */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
 		F6BCF191C68D208D527EFD59 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +319,7 @@
 				9F2A393120E12719005A60DA /* race.turians.png in Resources */,
 				9F2A393220E12719005A60DA /* race.humans.jpg in Resources */,
 				9F2A396720E127D5005A60DA /* SectionsView.xib in Resources */,
+				9F4FEF3020E24CE900E95E77 /* LoadingView.xib in Resources */,
 				9F2A392C20E12719005A60DA /* race.elcor.png in Resources */,
 				9F2A396820E127D5005A60DA /* SectionsItemView.xib in Resources */,
 				9F2A393020E12719005A60DA /* race.salarians.png in Resources */,
@@ -324,11 +339,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
+				"${BUILT_PRODUCTS_DIR}/UIColor_Hex_Swift/UIColor_Hex_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIColor_Hex_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -380,6 +395,7 @@
 				9F2A395B20E127A3005A60DA /* SectionsItem.swift in Sources */,
 				9F2A395020E12740005A60DA /* CBetterCollectionViewCell.m in Sources */,
 				9F2A393E20E12728005A60DA /* CBetterCollectionViewCellTemplate.swift in Sources */,
+				9F4FEF2F20E24CE900E95E77 /* LoadingView.swift in Sources */,
 				9F2A395320E12740005A60DA /* CBetterCollectionViewLayoutAttributes.m in Sources */,
 				9F2A393F20E12728005A60DA /* UIViewControllerTemplate.swift in Sources */,
 				9F2A395C20E127A3005A60DA /* SimpleCallback.swift in Sources */,

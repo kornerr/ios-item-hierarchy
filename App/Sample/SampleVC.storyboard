@@ -18,29 +18,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPk-jT-LaL">
-                                <rect key="frame" x="0.0" y="20" width="320" height="350"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWw-Wa-lUg">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPk-jT-LaL">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="350" id="QVj-1e-XGr"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="QVj-1e-XGr"/>
+                                    <constraint firstItem="vPk-jT-LaL" firstAttribute="top" secondItem="XWw-Wa-lUg" secondAttribute="top" id="2tf-y6-8YH"/>
+                                    <constraint firstItem="vPk-jT-LaL" firstAttribute="leading" secondItem="XWw-Wa-lUg" secondAttribute="leading" id="cG2-xC-vif"/>
+                                    <constraint firstAttribute="trailing" secondItem="vPk-jT-LaL" secondAttribute="trailing" id="s3b-sA-RaD"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhH-fW-1Ob">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="SMD-tG-O2v" firstAttribute="trailing" secondItem="vPk-jT-LaL" secondAttribute="trailing" id="Sae-Ev-Pt2"/>
-                            <constraint firstItem="vPk-jT-LaL" firstAttribute="leading" secondItem="SMD-tG-O2v" secondAttribute="leading" id="qZF-S2-Vgd"/>
-                            <constraint firstItem="vPk-jT-LaL" firstAttribute="top" secondItem="SMD-tG-O2v" secondAttribute="top" id="tah-Py-E2M"/>
+                            <constraint firstAttribute="trailing" secondItem="vhH-fW-1Ob" secondAttribute="trailing" id="Bu3-E1-pbH"/>
+                            <constraint firstItem="vhH-fW-1Ob" firstAttribute="top" secondItem="sAb-eW-4Kb" secondAttribute="top" id="CuC-tS-cVg"/>
+                            <constraint firstItem="vhH-fW-1Ob" firstAttribute="leading" secondItem="sAb-eW-4Kb" secondAttribute="leading" id="F8i-6b-6PO"/>
+                            <constraint firstItem="SMD-tG-O2v" firstAttribute="trailing" secondItem="XWw-Wa-lUg" secondAttribute="trailing" id="S8n-bU-zWM"/>
+                            <constraint firstItem="XWw-Wa-lUg" firstAttribute="top" secondItem="SMD-tG-O2v" secondAttribute="top" id="SUd-QS-tPC"/>
+                            <constraint firstItem="SMD-tG-O2v" firstAttribute="bottom" secondItem="XWw-Wa-lUg" secondAttribute="bottom" id="aJ3-eS-y3Y"/>
+                            <constraint firstItem="XWw-Wa-lUg" firstAttribute="leading" secondItem="SMD-tG-O2v" secondAttribute="leading" id="jIy-1O-4cS"/>
+                            <constraint firstAttribute="bottom" secondItem="vhH-fW-1Ob" secondAttribute="bottom" id="oVK-UE-A9r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SMD-tG-O2v"/>
                     </view>
                     <connections>
+                        <outlet property="loadingContainerView" destination="vhH-fW-1Ob" id="fsR-qG-hJH"/>
                         <outlet property="sectionsContainerView" destination="vPk-jT-LaL" id="Nxw-EK-pei"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yg7-XI-xfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-55" y="142"/>
+            <point key="canvasLocation" x="-56.25" y="141.5492957746479"/>
         </scene>
     </scenes>
 </document>
