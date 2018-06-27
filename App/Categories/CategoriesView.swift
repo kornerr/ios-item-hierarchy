@@ -1,12 +1,12 @@
 
 import UIKit
 
-private func SECTIONS_VIEW_LOG(_ message: String)
+private func CATEGORIES_VIEW_LOG(_ message: String)
 {
-    NSLog("SectionsView \(message)")
+    NSLog("CategoriesView \(message)")
 }
 
-class SectionsView:
+class CategoriesView:
     UIView,
     UICollectionViewDataSource
 {
@@ -18,7 +18,6 @@ class SectionsView:
         super.awakeFromNib()
         self.setupCollectionView()
         self.setupItemSelection()
-        self.updateTitle()
     }
 
     // MARK: - ITEMS
@@ -41,8 +40,6 @@ class SectionsView:
     {
         // Display items.
         self.collectionView.reloadData()
-
-        self.updateTitle()
     }
     
     // MARK: - COLLECTION VIEW
@@ -82,7 +79,7 @@ class SectionsView:
     // MARK: - CELL
 
     private let CellId = "CellId"
-    private typealias CellView = SectionsItemView
+    private typealias CellView = CategoriesItemView
     private typealias Cell = CBetterCollectionViewCellTemplate<CellView>
 
     private func cell(forItemAt indexPath: IndexPath) -> UICollectionViewCell
@@ -95,21 +92,11 @@ class SectionsView:
             as! Cell
         let item = self.items[indexPath.row]
         cell.itemView.image = item.image
+        // TODO Title
         return cell
     }
 
-    // MARK: - TITLE
-    
     @IBOutlet private var titleLabel: UILabel?
-
-    private func updateTitle()
-    {
-        let title =
-            self.items.count > self.selectedItemId ?
-            self.items[self.selectedItemId].title :
-            NSLocalizedString("SectionsView.Title.Undefined", comment: "")
-        self.titleLabel?.text = title.uppercased()
-    }
 
     // MARK: - ITEM SELECTION
 
@@ -127,9 +114,8 @@ class SectionsView:
         self.collectionViewLayout?.currentIndexPathChanged = { [weak self] in
             guard let this = self else { return }
 
-            SECTIONS_VIEW_LOG("Selected section: '\(this.selectedItemId)'")
+            CATEGORIES_VIEW_LOG("Selected category: '\(this.selectedItemId)'")
 
-            this.updateTitle()
             // Report selection.
             if let report = this.selectedItemChanged
             {

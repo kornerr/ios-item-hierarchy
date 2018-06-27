@@ -12,7 +12,7 @@
 		9F2A391720E12451005A60DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A391620E12451005A60DA /* Assets.xcassets */; };
 		9F2A391A20E12451005A60DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A391820E12451005A60DA /* LaunchScreen.storyboard */; };
 		9F2A392C20E12719005A60DA /* race.elcor.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A392320E12718005A60DA /* race.elcor.png */; };
-		9F2A392D20E12719005A60DA /* race.keeper.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A392420E12718005A60DA /* race.keeper.png */; };
+		9F2A392D20E12719005A60DA /* race.keepers.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A392420E12718005A60DA /* race.keepers.png */; };
 		9F2A392E20E12719005A60DA /* race.volus.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A392520E12718005A60DA /* race.volus.png */; };
 		9F2A392F20E12719005A60DA /* race.hanar.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A392620E12718005A60DA /* race.hanar.png */; };
 		9F2A393020E12719005A60DA /* race.salarians.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A392720E12718005A60DA /* race.salarians.png */; };
@@ -48,6 +48,10 @@
 		9F6457E220E3B04D0078EEFD /* ConfigurableCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6457E120E3B04D0078EEFD /* ConfigurableCollectionViewLayout.m */; };
 		9F6457E520E3CC590078EEFD /* CategoriesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6457E420E3CC590078EEFD /* CategoriesItem.swift */; };
 		9F6457E720E3CC660078EEFD /* race.humans.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F6457E620E3CC660078EEFD /* race.humans.png */; };
+		9F6457EA20E3CFC00078EEFD /* CategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F6457E820E3CFBF0078EEFD /* CategoriesView.xib */; };
+		9F6457EB20E3CFC00078EEFD /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6457E920E3CFC00078EEFD /* CategoriesView.swift */; };
+		9F6457EE20E3D0240078EEFD /* CategoriesItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6457EC20E3D0230078EEFD /* CategoriesItemView.swift */; };
+		9F6457EF20E3D0240078EEFD /* CategoriesItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F6457ED20E3D0230078EEFD /* CategoriesItemView.xib */; };
 		9FCAF78420E271CF0022CEEE /* blurred.logo.cerberus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9FCAF78320E271CF0022CEEE /* blurred.logo.cerberus.jpg */; };
 		9FCAF78620E27A710022CEEE /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCAF78520E27A710022CEEE /* CategoriesController.swift */; };
 /* End PBXBuildFile section */
@@ -60,7 +64,7 @@
 		9F2A391920E12451005A60DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F2A391B20E12451005A60DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F2A392320E12718005A60DA /* race.elcor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = race.elcor.png; sourceTree = "<group>"; };
-		9F2A392420E12718005A60DA /* race.keeper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = race.keeper.png; sourceTree = "<group>"; };
+		9F2A392420E12718005A60DA /* race.keepers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = race.keepers.png; sourceTree = "<group>"; };
 		9F2A392520E12718005A60DA /* race.volus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = race.volus.png; sourceTree = "<group>"; };
 		9F2A392620E12718005A60DA /* race.hanar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = race.hanar.png; sourceTree = "<group>"; };
 		9F2A392720E12718005A60DA /* race.salarians.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = race.salarians.png; sourceTree = "<group>"; };
@@ -106,6 +110,10 @@
 		9F6457E120E3B04D0078EEFD /* ConfigurableCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurableCollectionViewLayout.m; sourceTree = "<group>"; };
 		9F6457E420E3CC590078EEFD /* CategoriesItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesItem.swift; sourceTree = "<group>"; };
 		9F6457E620E3CC660078EEFD /* race.humans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = race.humans.png; sourceTree = "<group>"; };
+		9F6457E820E3CFBF0078EEFD /* CategoriesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesView.xib; sourceTree = "<group>"; };
+		9F6457E920E3CFC00078EEFD /* CategoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		9F6457EC20E3D0230078EEFD /* CategoriesItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesItemView.swift; sourceTree = "<group>"; };
+		9F6457ED20E3D0230078EEFD /* CategoriesItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesItemView.xib; sourceTree = "<group>"; };
 		9FCAF78320E271CF0022CEEE /* blurred.logo.cerberus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blurred.logo.cerberus.jpg; sourceTree = "<group>"; };
 		9FCAF78520E27A710022CEEE /* CategoriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
 		D551FCCEBDDB227CD625BC43 /* Pods-ItemHierarchy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemHierarchy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -201,7 +209,7 @@
 				9F2A392320E12718005A60DA /* race.elcor.png */,
 				9F2A392620E12718005A60DA /* race.hanar.png */,
 				9F6457E620E3CC660078EEFD /* race.humans.png */,
-				9F2A392420E12718005A60DA /* race.keeper.png */,
+				9F2A392420E12718005A60DA /* race.keepers.png */,
 				9F2A392720E12718005A60DA /* race.salarians.png */,
 				9F2A392820E12718005A60DA /* race.turians.png */,
 				9F2A392520E12718005A60DA /* race.volus.png */,
@@ -263,6 +271,10 @@
 			children = (
 				9FCAF78520E27A710022CEEE /* CategoriesController.swift */,
 				9F6457E420E3CC590078EEFD /* CategoriesItem.swift */,
+				9F6457E920E3CFC00078EEFD /* CategoriesView.swift */,
+				9F6457E820E3CFBF0078EEFD /* CategoriesView.xib */,
+				9F6457EC20E3D0230078EEFD /* CategoriesItemView.swift */,
+				9F6457ED20E3D0230078EEFD /* CategoriesItemView.xib */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -347,12 +359,14 @@
 				9F2A393120E12719005A60DA /* race.turians.png in Resources */,
 				9F4FEF3420E2602100E95E77 /* logo.cerberus.jpg in Resources */,
 				9FCAF78420E271CF0022CEEE /* blurred.logo.cerberus.jpg in Resources */,
+				9F6457EA20E3CFC00078EEFD /* CategoriesView.xib in Resources */,
+				9F6457EF20E3D0240078EEFD /* CategoriesItemView.xib in Resources */,
 				9F2A396720E127D5005A60DA /* SectionsView.xib in Resources */,
 				9F4FEF3020E24CE900E95E77 /* LoadingView.xib in Resources */,
 				9F2A392C20E12719005A60DA /* race.elcor.png in Resources */,
 				9F2A396820E127D5005A60DA /* SectionsItemView.xib in Resources */,
 				9F2A393020E12719005A60DA /* race.salarians.png in Resources */,
-				9F2A392D20E12719005A60DA /* race.keeper.png in Resources */,
+				9F2A392D20E12719005A60DA /* race.keepers.png in Resources */,
 				9F2A392F20E12719005A60DA /* race.hanar.png in Resources */,
 				9F2A392E20E12719005A60DA /* race.volus.png in Resources */,
 			);
@@ -422,6 +436,7 @@
 				9F2A393D20E12728005A60DA /* UIView+NibFile.swift in Sources */,
 				9F2A396520E127D5005A60DA /* SectionsItemView.swift in Sources */,
 				9F2A395020E12740005A60DA /* CBetterCollectionViewCell.m in Sources */,
+				9F6457EB20E3CFC00078EEFD /* CategoriesView.swift in Sources */,
 				9F2A393E20E12728005A60DA /* CBetterCollectionViewCellTemplate.swift in Sources */,
 				9F4FEF2F20E24CE900E95E77 /* LoadingView.swift in Sources */,
 				9F4FEF3920E2635E00E95E77 /* UIView+Visibility.m in Sources */,
@@ -431,6 +446,7 @@
 				9F2A396020E127CC005A60DA /* SampleCoordinator.swift in Sources */,
 				9FCAF78620E27A710022CEEE /* CategoriesController.swift in Sources */,
 				9F2A393B20E12728005A60DA /* UICollectionViewCellTemplate.swift in Sources */,
+				9F6457EE20E3D0240078EEFD /* CategoriesItemView.swift in Sources */,
 				9F6457E520E3CC590078EEFD /* CategoriesItem.swift in Sources */,
 				9F2A395920E127A3005A60DA /* Coordinator.swift in Sources */,
 				9F2A395220E12740005A60DA /* CReflectionView.m in Sources */,
