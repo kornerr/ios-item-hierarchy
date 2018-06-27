@@ -48,7 +48,16 @@ NOTE Original CCoverflowCollectionViewLayout redistribution notice is available 
 @property (readwrite, nonatomic, assign) CGFloat cellSpacing;
 @property (readwrite, nonatomic, assign) BOOL snapToCells;
 @property (readonly, nonatomic, strong) NSIndexPath *currentIndexPath;
+// Listen to this callbacked to be notified when `currentIndexPath` changes.
 @property (copy, nonatomic) SimpleBlock currentIndexPathChanged;
+
+// NOTE Make sure not to modify interpolators after initial rendering.
+// NOTE Default interpolators are configured to provide cover flow.
+@property (readwrite, nonatomic, strong) CInterpolator *scaleInterpolator;
+@property (readwrite, nonatomic, strong) CInterpolator *positionoffsetInterpolator;
+@property (readwrite, nonatomic, strong) CInterpolator *rotationInterpolator;
+@property (readwrite, nonatomic, strong) CInterpolator *zOffsetInterpolator;
+@property (readwrite, nonatomic, strong) CInterpolator *darknessInterpolator;
 
 @end
 

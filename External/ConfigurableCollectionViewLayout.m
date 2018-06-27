@@ -1,14 +1,14 @@
 
 /*	
  
- ConfigurableCollectionViewLayout:
- * is a fork of CCoverflowCollectionViewLayout
- * allows client code to configure different interpolators to achieve different representation
- * original CCoverflowCollectionViewLayout is located in schwa-Coverflow directory
- 
- NOTE Original CCoverflowCollectionViewLayout redistribution notice is available below
- 
- */
+ConfigurableCollectionViewLayout:
+* is a fork of CCoverflowCollectionViewLayout
+* allows client code to configure different interpolators to achieve different representation
+* original CCoverflowCollectionViewLayout is located in schwa-Coverflow directory
+
+NOTE Original CCoverflowCollectionViewLayout redistribution notice is available below
+
+*/
 
 //	Created by Jonathan Wight on 9/24/12.
 //	Copyright 2012 Jonathan Wight. All rights reserved.
@@ -51,12 +51,6 @@
 @property (readwrite, nonatomic, strong) NSIndexPath *savedCenterIndexPath;
 @property (readwrite, nonatomic, strong) NSIndexPath *previousIndexPath;
 
-@property (readwrite, nonatomic, strong) CInterpolator *scaleInterpolator;
-@property (readwrite, nonatomic, strong) CInterpolator *positionoffsetInterpolator;
-@property (readwrite, nonatomic, strong) CInterpolator *rotationInterpolator;
-@property (readwrite, nonatomic, strong) CInterpolator *zOffsetInterpolator;
-@property (readwrite, nonatomic, strong) CInterpolator *darknessInterpolator;
-
 @end
 
 @implementation ConfigurableCollectionViewLayout
@@ -83,10 +77,12 @@
 
 - (void)setup
 {
+    // Provide default values.
     self.cellSize = (CGSize){ 200.0f, 300.0f };
     self.cellSpacing = 40.0f;
     self.snapToCells = YES;
     
+    // Provide default interpolators.
     self.positionoffsetInterpolator = [[CInterpolator interpolatorWithDictionary:@{
                                                                                    @(-1.0f):               @(-self.cellSpacing * 2.0f),
                                                                                    @(-0.2f - FLT_EPSILON): @(  0.0f),
@@ -108,12 +104,10 @@
     //		@(-1.0f):               @(0.0f),
     //		}] interpolatorWithReflection:NO];
     
-    // ios-item-hierarchy MODIFICATION.
-    
-    //	self.darknessInterpolator = [[CInterpolator interpolatorWithDictionary:@{
-    //		@(-2.5f): @(0.5f),
-    //		@(-0.5f): @(0.0f),
-    //		}] interpolatorWithReflection:NO];
+    self.darknessInterpolator = [[CInterpolator interpolatorWithDictionary:@{
+    	@(-2.5f): @(0.5f),
+    	@(-0.5f): @(0.0f),
+    	}] interpolatorWithReflection:NO];
 }
 
 - (void)prepareLayout
@@ -127,12 +121,12 @@
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
 {
-    if ( newBounds.size.width != self.collectionView.bounds.size.width )
+    if (newBounds.size.width != self.collectionView.bounds.size.width)
     {
         self.savedCenterIndexPath = self.currentIndexPath;
     }
     
-    return(YES);
+    return YES;
 }
 
 - (CGSize)collectionViewContentSize
@@ -141,7 +135,7 @@
         .width = self.cellSpacing * self.cellCount + self.centerOffset * 2.0f,
         .height = self.collectionView.bounds.size.height,
     };
-    return(theSize);
+    return theSize;
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
@@ -164,10 +158,7 @@
         }
     }
     
-    // Decorations...
-    [theLayoutAttributes addObject:[self layoutAttributesForSupplementaryViewOfKind:@"title" atIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]]];
-    
-    return(theLayoutAttributes);
+    return theLayoutAttributes;
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -189,23 +180,19 @@
     {
         self.currentIndexPath = indexPath;
         
-        // ios-item-hierarchy MODIFICATION.
         // Only report if
         // * there's a listener
         // * index path changed
         bool report =
-        self.currentIndexPathChanged &&
-        (
-         self.currentIndexPath.row != self.previousIndexPath.row ||
-         self.currentIndexPath.section != self.previousIndexPath.section
-         );
-        
+            self.currentIndexPathChanged && (
+                self.currentIndexPath.row != self.previousIndexPath.row ||
+                self.currentIndexPath.section != self.previousIndexPath.section
+            );
+        self.previousIndexPath = self.currentIndexPath;
         if (report)
         {
             self.currentIndexPathChanged();
         }
-        self.previousIndexPath = self.currentIndexPath;
-        
     }
     
     // #########################################################################
@@ -233,24 +220,13 @@
     
     // #########################################################################
     
-    // ios-item-hierarchy MODIFICATION.
-    //theAttributes.shieldAlpha = [self.darknessInterpolator interpolatedValueForKey:theDelta];
-    theAttributes.shieldAlpha = 0.0;
+    theAttributes.shieldAlpha = [self.darknessInterpolator interpolatedValueForKey:theDelta];
     
     theAttributes.zIndex = self.cellCount - labs(self.currentIndexPath.row-indexPath.row);
     
     // #########################################################################
     
-    return(theAttributes);
-}
-
-- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionViewLayoutAttributes *theAttributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:kind withIndexPath:indexPath];
-    theAttributes.center = (CGPoint){ .x = CGRectGetMidX(self.collectionView.bounds), .y = CGRectGetMaxY(self.collectionView.bounds) - 25};
-    theAttributes.size = (CGSize){ 200, 50 };
-    theAttributes.zIndex = 1;
-    return(theAttributes);
+    return theAttributes;
 }
 
 - (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
@@ -261,7 +237,7 @@
         theTargetContentOffset.x = round(theTargetContentOffset.x / self.cellSpacing) * self.cellSpacing;
         theTargetContentOffset.x = MIN(theTargetContentOffset.x, (self.cellCount - 1) * self.cellSpacing);
     }
-    return(theTargetContentOffset);
+    return theTargetContentOffset;
 }
 
 - (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset
@@ -270,7 +246,7 @@
     
     if (self.snapToCells == YES)
     {
-        if ( self.savedCenterIndexPath )
+        if (self.savedCenterIndexPath)
         {
             CGFloat theRow = self.savedCenterIndexPath.row;
             theTargetContentOffset.x =
@@ -284,8 +260,8 @@
             theTargetContentOffset.x = MIN(theTargetContentOffset.x, (self.cellCount - 1) * self.cellSpacing);
         }
     }
-    return(theTargetContentOffset);
+    return theTargetContentOffset;
 }
 
-
 @end
+
