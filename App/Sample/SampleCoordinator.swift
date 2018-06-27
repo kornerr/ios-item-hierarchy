@@ -72,9 +72,9 @@ class SampleCoordinator: Coordinator
         self.rootVC = self.sampleVC
 
         // Display items when they are ready.
-        self.categoriesController.sectionsChanged = { [weak self] in
+        self.categoriesController.itemsChanged = { [weak self] in
             guard let this = self else { return }
-            this.sectionsView.items = this.categoriesController.sections
+            this.sectionsView.items = this.categoriesController.itemsRoot.children
         }
 
         // Request items.

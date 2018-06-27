@@ -17,12 +17,12 @@ class CategoriesController
 
     // MARK: - ITEMS
 
-    var sections = [CategoriesItem]()
-    var sectionsChanged: SimpleCallback?
+    var itemsRoot = CategoriesItem("root")
+    var itemsChanged: SimpleCallback?
 
-    private func reportSectionsChanged()
+    private func reportItemsChanged()
     {
-        if let report = self.sectionsChanged
+        if let report = self.itemsChanged
         {
             report()
         }
@@ -61,7 +61,7 @@ class CategoriesController
             self.setupSectionsWithPlaceholderImages()
             self.refreshIsExecuting = false
 
-            self.loadImagesForSections()
+            self.loadSectionImages()
         }
     }
 
@@ -82,16 +82,16 @@ class CategoriesController
     private func setupSectionsWithPlaceholderImages()
     {
         // Use placeholder image before real ones are available.
-        self.sections = self.races.map { return CategoriesItem($0, self.placeholderItemImage) }
-        self.reportSectionsChanged()
+        self.itemsRoot.children = self.races.map { return CategoriesItem($0, self.placeholderItemImage) }
+        self.reportItemsChanged()
     }
 
-    private var completelyLoadedItems = [CategoriesItem]()
+    private var loadedItemsRoot = CategoriesItem("root")
 
-    private func loadImagesForSections()
+    private func loadSectionImages()
     {
         // NOTE Use MassEffect races as images: http://masseffect.wikia.com/wiki/Races
-        self.completelyLoadedItems =
+        self.loadedItemsRoot.children =
             self.races.map {
                 let race = $0.lowercased()
                 let imageName = "race.\(race).png"
@@ -104,17 +104,17 @@ class CategoriesController
     private func loadNextSectionImage()
     {
         // Make sure we have images to load.
-        guard !self.completelyLoadedItems.isEmpty else { return }
+        guard !self.loadedItemsRoot.children.isEmpty else { return }
 
         // "Load" the first image from the array.
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            let loadedItem = self.completelyLoadedItems.remove(at: 0)
-            for id in 0..<self.sections.count
+            let loadedItem = self.loadedItemsRoot.children.remove(at: 0)
+            for id in 0..<self.itemsRoot.children.count
             {
-                if self.sections[id].title == loadedItem.title
+                if self.itemsRoot.children[id].title == loadedItem.title
                 {
-                    self.sections[id].image = loadedItem.image
-                    self.reportSectionsChanged()
+                    self.itemsRoot.children[id].image = loadedItem.image
+                    self.reportItemsChanged()
                     break
                 }
             }

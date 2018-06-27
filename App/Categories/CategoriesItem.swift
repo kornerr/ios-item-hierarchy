@@ -11,5 +11,7 @@ struct CategoriesItem
 
     var title = ""
     var image: UIImage?
+
+    var children = [CategoriesItem]()
 }
 
