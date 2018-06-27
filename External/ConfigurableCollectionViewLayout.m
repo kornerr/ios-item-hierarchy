@@ -82,32 +82,33 @@ NOTE Original CCoverflowCollectionViewLayout redistribution notice is available 
     self.cellSpacing = 40.0f;
     self.snapToCells = YES;
     
+    NSDictionary *positions = @{
+        @(-1.0f): @(-self.cellSpacing * 2.0f),
+        @(-0.2f - FLT_EPSILON): @(0.0f),
+    };
+    NSDictionary *rotations = @{
+        @(-0.5f): @(50.0f),
+        @(-0.0f): @(0.0f),
+    };
+    NSDictionary *scales = @{
+        @(-1.0f): @(0.9),
+        @(-0.5f): @(1.0f),
+    };
+    NSDictionary *darkness = @{
+    	@(-2.5f): @(0.5f),
+    	@(-0.5f): @(0.0f),
+    };
+
     // Provide default interpolators.
-    self.positionoffsetInterpolator = [[CInterpolator interpolatorWithDictionary:@{
-                                                                                   @(-1.0f):               @(-self.cellSpacing * 2.0f),
-                                                                                   @(-0.2f - FLT_EPSILON): @(  0.0f),
-                                                                                   }] interpolatorWithReflection:YES];
-    
-    self.rotationInterpolator = [[CInterpolator interpolatorWithDictionary:@{
-                                                                             @(-0.5f):  @(50.0f),
-                                                                             @(-0.0f): @( 0.0f),
-                                                                             }] interpolatorWithReflection:YES];
-    
-    self.scaleInterpolator = [[CInterpolator interpolatorWithDictionary:@{
-                                                                          @(-1.0f): @(0.9),
-                                                                          @(-0.5f): @(1.0f),
-                                                                          }] interpolatorWithReflection:NO];
-    
+    self.positionoffsetInterpolator = [[CInterpolator interpolatorWithDictionary:positions] interpolatorWithReflection:YES];
+    self.rotationInterpolator = [[CInterpolator interpolatorWithDictionary:rotations] interpolatorWithReflection:YES];
+    self.scaleInterpolator = [[CInterpolator interpolatorWithDictionary:scales] interpolatorWithReflection:NO];
+    self.darknessInterpolator = [[CInterpolator interpolatorWithDictionary:darkness] interpolatorWithReflection:NO];
     //	self.zOffsetInterpolator = [[CInterpolator interpolatorWithDictionary:@{
     //		@(-9.0f):               @(9.0f),
     //		@(-1.0f - FLT_EPSILON): @(1.0f),
     //		@(-1.0f):               @(0.0f),
     //		}] interpolatorWithReflection:NO];
-    
-    self.darknessInterpolator = [[CInterpolator interpolatorWithDictionary:@{
-    	@(-2.5f): @(0.5f),
-    	@(-0.5f): @(0.0f),
-    	}] interpolatorWithReflection:NO];
 }
 
 - (void)prepareLayout

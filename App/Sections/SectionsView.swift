@@ -48,14 +48,20 @@ class SectionsView:
     // MARK: - COLLECTION VIEW
 
     @IBOutlet private var collectionView: UICollectionView!
-    private var collectionViewLayout: ConfigurableCollectionViewLayout?
+    private var collectionViewLayout: ConfigurableCollectionViewLayout!
 
     private func setupCollectionView()
     {
         self.collectionView.register(Cell.self, forCellWithReuseIdentifier: CellId)
         self.collectionView.dataSource = self
         
-        self.collectionViewLayout = ConfigurableCollectionViewLayout()
+        // Create and configure layout.
+        let layout = ConfigurableCollectionViewLayout()
+        layout.darknessInterpolator = nil
+        // Keep layout.
+        self.collectionViewLayout = layout
+
+        // Provide layout to collection view.
         self.collectionView.collectionViewLayout = self.collectionViewLayout!
     }
     
