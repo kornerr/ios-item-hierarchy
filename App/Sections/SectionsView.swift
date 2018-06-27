@@ -48,14 +48,14 @@ class SectionsView:
     // MARK: - COLLECTION VIEW
 
     @IBOutlet private var collectionView: UICollectionView!
-    private var collectionViewLayout: CCoverflowCollectionViewLayout?
+    private var collectionViewLayout: ConfigurableCollectionViewLayout?
 
     private func setupCollectionView()
     {
         self.collectionView.register(Cell.self, forCellWithReuseIdentifier: CellId)
         self.collectionView.dataSource = self
         
-        self.collectionViewLayout = CCoverflowCollectionViewLayout()
+        self.collectionViewLayout = ConfigurableCollectionViewLayout()
         self.collectionView.collectionViewLayout = self.collectionViewLayout!
     }
     

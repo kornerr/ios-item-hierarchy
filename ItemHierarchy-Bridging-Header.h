@@ -3,6 +3,7 @@
 //
 
 #import "CBetterCollectionViewCell.h"
-#import "CCoverflowCollectionViewLayout.h"
+#import "CInterpolator.h"
+#import "ConfigurableCollectionViewLayout.h"
 
 #import "UIView+Visibility.h"
