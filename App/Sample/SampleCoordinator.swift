@@ -50,9 +50,9 @@ class SampleCoordinator: Coordinator
         self.loadingView.image = UIImage(named: "logo.cerberus.jpg")!
 
         // Display it when refreshing categories.
-        self.categoriesController.refreshItemsExecutionChanged = { [weak self] in
+        self.categoriesController.refreshExecutionChanged = { [weak self] in
             guard let this = self else { return }
-            let isExecuting = this.categoriesController.refreshItemsIsExecuting
+            let isExecuting = this.categoriesController.refreshIsExecuting
             this.sampleVC.loadingView = isExecuting ?  this.loadingView : nil
         }
     }
@@ -72,13 +72,13 @@ class SampleCoordinator: Coordinator
         self.rootVC = self.sampleVC
 
         // Display items when they are ready.
-        self.categoriesController.itemsChanged = { [weak self] in
+        self.categoriesController.sectionsChanged = { [weak self] in
             guard let this = self else { return }
-            this.sectionsView.items = this.categoriesController.items
+            this.sectionsView.items = this.categoriesController.sections
         }
 
         // Request items.
-        self.categoriesController.refreshItems()
+        self.categoriesController.refresh()
     }
 
 }

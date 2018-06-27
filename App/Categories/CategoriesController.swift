@@ -17,51 +17,51 @@ class CategoriesController
 
     // MARK: - ITEMS
 
-    var items = [CategoriesItem]()
-    var itemsChanged: SimpleCallback?
+    var sections = [CategoriesItem]()
+    var sectionsChanged: SimpleCallback?
 
-    private func reportItemsChanged()
+    private func reportSectionsChanged()
     {
-        if let report = self.itemsChanged
+        if let report = self.sectionsChanged
         {
             report()
         }
     }
 
-    // MARK: - ITEMS' REFRESH
+    // MARK: - REFRESH
 
-    private(set) var refreshItemsIsExecuting: Bool
+    private(set) var refreshIsExecuting: Bool
     {
         get
         {
-            return _refreshItemsIsExecuting
+            return _refreshIsExecuting
         }
         set
         {
-            _refreshItemsIsExecuting = newValue
+            _refreshIsExecuting = newValue
             // Report the change.
-            if let report = self.refreshItemsExecutionChanged
+            if let report = self.refreshExecutionChanged
             {
                 report()
             }
         }
     }
-    private var _refreshItemsIsExecuting = false
+    private var _refreshIsExecuting = false
 
-    var refreshItemsExecutionChanged: SimpleCallback?
+    var refreshExecutionChanged: SimpleCallback?
 
-    func refreshItems()
+    func refresh()
     {
         // Skip refreshing if we're already doing it.
-        guard !self.refreshItemsIsExecuting else { return }
+        guard !self.refreshIsExecuting else { return }
 
         // Fake loading.
-        self.refreshItemsIsExecuting = true
+        self.refreshIsExecuting = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.setupItemsWithPlaceholderImages()
-            self.refreshItemsIsExecuting = false
+            self.setupSectionsWithPlaceholderImages()
+            self.refreshIsExecuting = false
 
-            self.loadMissingItemImages()
+            self.loadImagesForSections()
         }
     }
 
@@ -79,16 +79,16 @@ class CategoriesController
        "Volus",
     ]
 
-    private func setupItemsWithPlaceholderImages()
+    private func setupSectionsWithPlaceholderImages()
     {
         // Use placeholder image before real ones are available.
-        self.items = self.races.map { return CategoriesItem($0, self.placeholderItemImage) }
-        self.reportItemsChanged()
+        self.sections = self.races.map { return CategoriesItem($0, self.placeholderItemImage) }
+        self.reportSectionsChanged()
     }
 
     private var completelyLoadedItems = [CategoriesItem]()
 
-    private func loadMissingItemImages()
+    private func loadImagesForSections()
     {
         // NOTE Use MassEffect races as images: http://masseffect.wikia.com/wiki/Races
         self.completelyLoadedItems =
@@ -98,28 +98,28 @@ class CategoriesController
                 let image = UIImage(named: imageName)!
                 return CategoriesItem($0, image)
             }
-        self.loadNextImage()
+        self.loadNextSectionImage()
     }
 
-    private func loadNextImage()
+    private func loadNextSectionImage()
     {
         // Make sure we have images to load.
         guard !self.completelyLoadedItems.isEmpty else { return }
 
         // "Load" the first image from the array.
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             let loadedItem = self.completelyLoadedItems.remove(at: 0)
-            for id in 0..<self.items.count
+            for id in 0..<self.sections.count
             {
-                if self.items[id].title == loadedItem.title
+                if self.sections[id].title == loadedItem.title
                 {
-                    self.items[id].image = loadedItem.image
-                    self.reportItemsChanged()
+                    self.sections[id].image = loadedItem.image
+                    self.reportSectionsChanged()
                     break
                 }
             }
 
-            self.loadNextImage()
+            self.loadNextSectionImage()
         }
     }
 
