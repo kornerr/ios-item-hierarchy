@@ -10,10 +10,11 @@ class SampleVC: UIViewController
     {
         super.viewDidLoad()
         self.updateSectionsView()
+        self.updateCategoriesView()
         self.updateLoadingView()
     }
     
-    // MARK: - SECTIONS VIEW
+    // MARK: - SECTIONS
     
     @IBOutlet private var sectionsContainerView: UIView?
 
@@ -35,7 +36,30 @@ class SampleVC: UIViewController
     {
         self.sectionsContainerView?.embeddedView = self.sectionsView
     }
+    
+    // MARK: - CATEGORIES
+    
+    @IBOutlet private var categoriesContainerView: UIView!
 
+    var categoriesView: UIView?
+    {
+        get
+        {
+            return _categoriesView
+        }
+        set
+        {
+            _categoriesView = newValue
+            self.updateCategoriesView()
+        }
+    }
+    private var _categoriesView: UIView?
+
+    private func updateCategoriesView()
+    {
+        self.categoriesContainerView?.embeddedView = self.categoriesView
+    }
+    
     // MARK: - LOADING
 
     @IBOutlet private var loadingContainerView: UIView?

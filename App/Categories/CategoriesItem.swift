@@ -1,7 +1,7 @@
 
 import UIKit
 
-struct SectionsItem
+struct CategoriesItem
 {
     init(_ title: String, _ image: UIImage? = nil)
     {

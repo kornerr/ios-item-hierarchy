@@ -28,12 +28,22 @@
                                             <constraint firstAttribute="height" constant="350" id="QVj-1e-XGr"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypE-aQ-f6t">
+                                        <rect key="frame" x="0.0" y="350" width="320" height="150"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="I6R-x1-dtI"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="vPk-jT-LaL" firstAttribute="top" secondItem="XWw-Wa-lUg" secondAttribute="top" id="2tf-y6-8YH"/>
+                                    <constraint firstItem="ypE-aQ-f6t" firstAttribute="leading" secondItem="XWw-Wa-lUg" secondAttribute="leading" id="DNX-QU-cvD"/>
                                     <constraint firstItem="vPk-jT-LaL" firstAttribute="leading" secondItem="XWw-Wa-lUg" secondAttribute="leading" id="cG2-xC-vif"/>
+                                    <constraint firstItem="ypE-aQ-f6t" firstAttribute="top" secondItem="vPk-jT-LaL" secondAttribute="bottom" id="lFr-Ge-VSv"/>
                                     <constraint firstAttribute="trailing" secondItem="vPk-jT-LaL" secondAttribute="trailing" id="s3b-sA-RaD"/>
+                                    <constraint firstAttribute="trailing" secondItem="ypE-aQ-f6t" secondAttribute="trailing" id="xrW-DC-OnB"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhH-fW-1Ob">
@@ -55,6 +65,7 @@
                         <viewLayoutGuide key="safeArea" id="SMD-tG-O2v"/>
                     </view>
                     <connections>
+                        <outlet property="categoriesContainerView" destination="ypE-aQ-f6t" id="dWb-Dq-irt"/>
                         <outlet property="loadingContainerView" destination="vhH-fW-1Ob" id="0OW-ud-C4o"/>
                         <outlet property="sectionsContainerView" destination="vPk-jT-LaL" id="Nxw-EK-pei"/>
                     </connections>

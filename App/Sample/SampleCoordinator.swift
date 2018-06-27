@@ -10,6 +10,7 @@ class SampleCoordinator: Coordinator
     {
         super.init()
         self.setupSections()
+        self.setupCategories()
         self.setupLoading()
         self.setupSample()
     }
@@ -17,14 +18,24 @@ class SampleCoordinator: Coordinator
     // MARK: - SECTIONS
 
     private var sectionsView: SectionsView!
-    private var sectionsController: SectionsController!
 
     private func setupSections()
     {
         self.sectionsView = UIView.loadFromNib()
-        self.sectionsController = SectionsController()
-        let placeholder = UIImage(named: "blurred.logo.cerberus.jpg")!
-        self.sectionsController.placeholderItemImage = placeholder
+    }
+
+    // MARK: - CATEGORIES
+
+    private var categoriesView: CategoriesView!
+    private var categoriesController: CategoriesController!
+
+    private func setupCategories()
+    {
+        self.categoriesView = UIView.loadFromNib()
+
+        self.categoriesController = CategoriesController()
+        let image = UIImage(named: "blurred.logo.cerberus.jpg")!
+        self.categoriesController.placeholderItemImage = image
     }
 
     // MARK: - LOADING
@@ -38,10 +49,10 @@ class SampleCoordinator: Coordinator
         self.loadingView.title = "Loading"
         self.loadingView.image = UIImage(named: "logo.cerberus.jpg")!
 
-        // Display it when refreshing sections.
-        self.sectionsController.refreshItemsExecutionChanged = { [weak self] in
+        // Display it when refreshing categories.
+        self.categoriesController.refreshItemsExecutionChanged = { [weak self] in
             guard let this = self else { return }
-            let isExecuting = this.sectionsController.refreshItemsIsExecuting
+            let isExecuting = this.categoriesController.refreshItemsIsExecuting
             this.sampleVC.loadingView = isExecuting ?  this.loadingView : nil
         }
     }
@@ -52,21 +63,22 @@ class SampleCoordinator: Coordinator
 
     private func setupSample()
     {
-        // Create Sample VC.
+        // Create and configure Sample VC.
         let storyboard = UIStoryboard.init(name: "SampleVC", bundle: nil)
         self.sampleVC = storyboard.instantiateViewController(withIdentifier: "SampleVC") as! SampleVC
         self.sampleVC.sectionsView = self.sectionsView
+        self.sampleVC.categoriesView = self.categoriesView
         // Display it.
         self.rootVC = self.sampleVC
 
         // Display items when they are ready.
-        self.sectionsController.itemsChanged = { [weak self] in
+        self.categoriesController.itemsChanged = { [weak self] in
             guard let this = self else { return }
-            this.sectionsView.items = this.sectionsController.items
+            this.sectionsView.items = this.categoriesController.items
         }
 
         // Request items.
-        self.sectionsController.refreshItems()
+        self.categoriesController.refreshItems()
     }
 
 }
