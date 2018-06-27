@@ -3,7 +3,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (Visibility)
+@interface UIView (Visibility) <CAAnimationDelegate>
 
 - (BOOL)visible;
 - (void)setVisible:(BOOL)visible;
