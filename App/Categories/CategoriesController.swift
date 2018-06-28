@@ -98,16 +98,35 @@ class CategoriesController
 
     private var loadedItemsRoot = CategoriesItem("root")
 
-    private func loadSectionImages()
+    private func loadedSections(tintedColor: UIColor? = nil) -> [CategoriesItem]
     {
         // NOTE Use MassEffect races as images: http://masseffect.wikia.com/wiki/Races
-        self.loadedItemsRoot.children =
-            self.races.map {
-                let race = $0.lowercased()
-                let imageName = "race.\(race).png"
-                let image = UIImage(named: imageName)!
-                return CategoriesItem($0, image)
+        return self.races.map {
+            let race = $0.lowercased()
+            let imageName = "race.\(race).png"
+            var image = UIImage(named: imageName)!
+            if let color = tintedColor
+            {
+                image = image.withRenderingMode(.alwaysTemplate)
+	            image = image.tintedWithLinearGradientColors(colorsArr: [color.cgColor, color.cgColor])
             }
+            return CategoriesItem($0, image)
+        }
+    }
+
+    private func loadedCategories() -> [CategoriesItem]
+    {
+        // Tint images with randomly generated tint color.
+        let red = CGFloat(arc4random_uniform(256)) / 256.0
+        let green = CGFloat(arc4random_uniform(256)) / 256.0
+        let blue = CGFloat(arc4random_uniform(256)) / 256.0
+        let color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+        return self.loadedSections(tintedColor: color)
+    }
+
+    private func loadSectionImages()
+    {
+        self.loadedItemsRoot.children = self.loadedSections()
         self.loadNextSectionImage()
     }
 
@@ -123,7 +142,12 @@ class CategoriesController
             {
                 if self.itemsRoot.children[id].title == loadedItem.title
                 {
+                    // Update section image.
                     self.itemsRoot.children[id].image = loadedItem.image
+                    // Update section categories' images
+                    self.itemsRoot.children[id].children =
+                        self.loadedCategories()
+
                     self.reportItemsChanged()
                     break
                 }

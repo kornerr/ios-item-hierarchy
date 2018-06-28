@@ -41,6 +41,7 @@
 		9F2A396820E127D5005A60DA /* SectionsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A396420E127D5005A60DA /* SectionsItemView.xib */; };
 		9F2A397120E12B73005A60DA /* SampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2A396F20E12B73005A60DA /* SampleVC.swift */; };
 		9F2A397420E13349005A60DA /* SampleVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F2A397320E13349005A60DA /* SampleVC.storyboard */; };
+		9F361E5720E52B19004999EC /* UIImage+tintedWithLinearGradientColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F361E5620E52B19004999EC /* UIImage+tintedWithLinearGradientColors.swift */; };
 		9F4FEF2F20E24CE900E95E77 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4FEF2D20E24CE900E95E77 /* LoadingView.swift */; };
 		9F4FEF3020E24CE900E95E77 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4FEF2E20E24CE900E95E77 /* LoadingView.xib */; };
 		9F4FEF3420E2602100E95E77 /* logo.cerberus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F4FEF3320E2602100E95E77 /* logo.cerberus.jpg */; };
@@ -101,6 +102,7 @@
 		9F2A396F20E12B73005A60DA /* SampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleVC.swift; sourceTree = "<group>"; };
 		9F2A397320E13349005A60DA /* SampleVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleVC.storyboard; sourceTree = "<group>"; };
 		9F2A397520E13749005A60DA /* SimpleBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleBlock.h; sourceTree = "<group>"; };
+		9F361E5620E52B19004999EC /* UIImage+tintedWithLinearGradientColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+tintedWithLinearGradientColors.swift"; sourceTree = "<group>"; };
 		9F4FEF2D20E24CE900E95E77 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		9F4FEF2E20E24CE900E95E77 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		9F4FEF3320E2602100E95E77 /* logo.cerberus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.cerberus.jpg; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				9F6457E120E3B04D0078EEFD /* ConfigurableCollectionViewLayout.m */,
 				9F2A397520E13749005A60DA /* SimpleBlock.h */,
 				9F2A393520E12728005A60DA /* UICollectionViewCellTemplate.swift */,
+				9F361E5620E52B19004999EC /* UIImage+tintedWithLinearGradientColors.swift */,
 				9F2A393620E12728005A60DA /* UITableViewCellTemplate.swift */,
 				9F2A393A20E12728005A60DA /* UIView+Embed.swift */,
 				9F2A393720E12728005A60DA /* UIView+NibFile.swift */,
@@ -447,6 +450,7 @@
 				9FCAF78620E27A710022CEEE /* CategoriesController.swift in Sources */,
 				9F2A393B20E12728005A60DA /* UICollectionViewCellTemplate.swift in Sources */,
 				9F6457EE20E3D0240078EEFD /* CategoriesItemView.swift in Sources */,
+				9F361E5720E52B19004999EC /* UIImage+tintedWithLinearGradientColors.swift in Sources */,
 				9F6457E520E3CC590078EEFD /* CategoriesItem.swift in Sources */,
 				9F2A395920E127A3005A60DA /* Coordinator.swift in Sources */,
 				9F2A395220E12740005A60DA /* CReflectionView.m in Sources */,
