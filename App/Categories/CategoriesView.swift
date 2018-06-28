@@ -6,15 +6,15 @@ private func CATEGORIES_VIEW_LOG(_ message: String)
     NSLog("CategoriesView \(message)")
 }
 
-private let ITEM_SIZE = CGSize(width: 100, height: 100)
-private let ITEM_SPACING: Float = 40
+private let ITEM_SIZE = CGSize(width: 100, height: 130)
+private let ITEM_SPACING: Float = 60
 private let ITEM_SCALES: [NSNumber: NSNumber] = [
-    -1.0: 0.8,
-    -0.8: 1.0,
+    -1.0: 0.5,
+    -0.6: 0.8,
 ]
 private let ITEM_POSITIONS: [NSNumber: NSNumber] = [
-    -1.0: NSNumber(value: -ITEM_SPACING * 2.0),
-    NSNumber(value: -0.2 - FLT_EPSILON): 0.0,
+    -1.0: NSNumber(value: -ITEM_SPACING * 0.6),
+    -0.6: NSNumber(value: -ITEM_SPACING * 0.4),
 ]
 
 class CategoriesView:
@@ -109,7 +109,7 @@ class CategoriesView:
             as! Cell
         let item = self.items[indexPath.row]
         cell.itemView.image = item.image
-        // TODO Title
+        cell.itemView.title = item.title.uppercased()
         return cell
     }
 

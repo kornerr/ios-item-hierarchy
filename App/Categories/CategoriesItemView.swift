@@ -10,17 +10,30 @@ class CategoriesItemView: UIView
     {
         get
         {
-            return self.imageView?.image
+            return self.imageView.image
         }
         set
         {
-            self.imageView?.image = newValue
+            self.imageView.image = newValue
         }
     }
     
     @IBOutlet private var imageView: UIImageView!
 
-    // TODO Title
+    // MARK: - TITLE
+
+    var title: String?
+    {
+        get
+        {
+            return self.titleLabel.text
+        }
+        set
+        {
+            self.titleLabel.text = newValue
+        }
+    }
     
+    @IBOutlet private var titleLabel: UILabel!
 }
 
