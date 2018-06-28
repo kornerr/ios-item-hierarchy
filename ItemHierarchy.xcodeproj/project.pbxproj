@@ -271,10 +271,10 @@
 			children = (
 				9FCAF78520E27A710022CEEE /* CategoriesController.swift */,
 				9F6457E420E3CC590078EEFD /* CategoriesItem.swift */,
-				9F6457E920E3CFC00078EEFD /* CategoriesView.swift */,
 				9F6457E820E3CFBF0078EEFD /* CategoriesView.xib */,
-				9F6457EC20E3D0230078EEFD /* CategoriesItemView.swift */,
+				9F6457E920E3CFC00078EEFD /* CategoriesView.swift */,
 				9F6457ED20E3D0230078EEFD /* CategoriesItemView.xib */,
+				9F6457EC20E3D0230078EEFD /* CategoriesItemView.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";

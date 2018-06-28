@@ -6,6 +6,17 @@ private func CATEGORIES_VIEW_LOG(_ message: String)
     NSLog("CategoriesView \(message)")
 }
 
+private let ITEM_SIZE = CGSize(width: 100, height: 100)
+private let ITEM_SPACING: Float = 40
+private let ITEM_SCALES: [NSNumber: NSNumber] = [
+    -1.0: 0.8,
+    -0.8: 1.0,
+]
+private let ITEM_POSITIONS: [NSNumber: NSNumber] = [
+    -1.0: NSNumber(value: -ITEM_SPACING * 2.0),
+    NSNumber(value: -0.2 - FLT_EPSILON): 0.0,
+]
+
 class CategoriesView:
     UIView,
     UICollectionViewDataSource
@@ -54,7 +65,13 @@ class CategoriesView:
         
         // Create and configure layout.
         let layout = ConfigurableCollectionViewLayout()
+        layout.cellSize = ITEM_SIZE
+        layout.cellSpacing = CGFloat(ITEM_SPACING)
         layout.darknessInterpolator = nil
+        layout.rotationInterpolator = nil
+        layout.scaleInterpolator = CInterpolator(dictionary: ITEM_SCALES).withReflection(false)
+        layout.positionoffsetInterpolator = CInterpolator(dictionary: ITEM_POSITIONS).withReflection(true)
+
         // Keep layout.
         self.collectionViewLayout = layout
 

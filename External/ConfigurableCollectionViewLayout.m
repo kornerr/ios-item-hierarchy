@@ -158,7 +158,7 @@ NOTE Original CCoverflowCollectionViewLayout redistribution notice is available 
             [theLayoutAttributes addObject:theAttributes];
         }
     }
-    
+
     return theLayoutAttributes;
 }
 
@@ -226,7 +226,7 @@ NOTE Original CCoverflowCollectionViewLayout redistribution notice is available 
     theAttributes.zIndex = self.cellCount - labs(self.currentIndexPath.row-indexPath.row);
     
     // #########################################################################
-    
+
     return theAttributes;
 }
 

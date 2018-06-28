@@ -58,7 +58,7 @@ class CategoriesController
         // Fake loading.
         self.refreshIsExecuting = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.setupSectionsWithPlaceholderImages()
+            self.setupItemsWithPlaceholderImages()
             self.refreshIsExecuting = false
 
             self.loadSectionImages()
@@ -79,10 +79,20 @@ class CategoriesController
        "Volus",
     ]
 
-    private func setupSectionsWithPlaceholderImages()
+    private func setupItemsWithPlaceholderImages()
     {
-        // Use placeholder image before real ones are available.
-        self.itemsRoot.children = self.races.map { return CategoriesItem($0, self.placeholderItemImage) }
+        // Create sections and categories with placeholder image.
+        // Both sections and categories contain the same item set.
+        let categories = self.races.map { return CategoriesItem($0, self.placeholderItemImage) }
+        var sections = [CategoriesItem]()
+        for race in self.races
+        {
+            var section = CategoriesItem(race, self.placeholderItemImage)
+            section.children = categories
+            sections.append(section)
+        }
+        self.itemsRoot.children = sections
+        // Report the change.
         self.reportItemsChanged()
     }
 
