@@ -7,9 +7,7 @@ private func PRODUCTS_CONTROLLER_LOG(_ message: String)
 class ProductsController
 {
 
-    init()
-    {
-    }
+    init() { }
 
     // MARK: - PLACEHOLDER ITEM IMAGE
 
@@ -17,7 +15,7 @@ class ProductsController
 
     // MARK: - ITEMS
 
-    var items = [Item]()]()
+    var items = [Item]()
     var itemsChanged: SimpleCallback?
 
     private func reportItemsChanged()
@@ -60,80 +58,37 @@ class ProductsController
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.loadItems()
             self.refreshIsExecuting = false
-
-            //self.loadImages()
+            // TODO: self.loadImages()
         }
     }
 
     // MARK: - STUBS
 
-    private let races = [
-       "Asari",
-       "Drell",
-       "Elcor",
-       "Hanar",
-       "Humans",
-       "Keepers",
-       "Salarians",
-       "Turians",
-       "Volus",
-    ]
-
     private func loadItems()
     {
         // Create products with placeholder image.
-        let categories = self.races.map { return CategoriesItem($0, self.placeholderItemImage) }
-        var sections = [CategoriesItem]()
-        for race in self.races
-        {
-            var section = CategoriesItem(race, self.placeholderItemImage)
-            section.children = categories
-            sections.append(section)
-        }
-        self.itemsRoot.children = sections
+        self.items = stubItems(placeholderImage: self.placeholderItemImage)
         // Report the change.
         self.reportItemsChanged()
     }
 
-    private var loadedItemsRoot = CategoriesItem("root")
+    /*
+    private var loadedItemsRoot = Item("root")
 
-    private func loadedSections(tintedColor: UIColor? = nil) -> [CategoriesItem]
+    private func loadImages()
     {
-        return self.races.map {
-            let race = $0.lowercased()
-            let imageName = "race.\(race).png"
-            var image = UIImage(named: imageName)!
-            if let color = tintedColor
-            {
-                image = image.withRenderingMode(.alwaysTemplate)
-	            image = image.tintedWithLinearGradientColors(colorsArr: [color.cgColor, color.cgColor])
-            }
-            return CategoriesItem($0, image)
-        }
+        // Prepare sections with "loaded" images.
+        self.loadedItemsRoot.children = stubItems()
+        // Start loading.
+        self.loadNextImage()
     }
 
-    private func loadedCategories() -> [CategoriesItem]
-    {
-        // Tint images with randomly generated tint color.
-        let red = CGFloat(arc4random_uniform(256)) / 256.0
-        let green = CGFloat(arc4random_uniform(256)) / 256.0
-        let blue = CGFloat(arc4random_uniform(256)) / 256.0
-        let color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-        return self.loadedSections(tintedColor: color)
-    }
-
-    private func loadSectionImages()
-    {
-        self.loadedItemsRoot.children = self.loadedSections()
-        self.loadNextSectionImage()
-    }
-
-    private func loadNextSectionImage()
+    private func loadNextImage()
     {
         // Make sure we have images to load.
         guard !self.loadedItemsRoot.children.isEmpty else { return }
 
-        // "Load" the first image from the array.
+        // "Load" image with a delay.
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             let loadedItem = self.loadedItemsRoot.children.remove(at: 0)
             for id in 0..<self.itemsRoot.children.count
@@ -144,16 +99,17 @@ class ProductsController
                     self.itemsRoot.children[id].image = loadedItem.image
                     // Update section categories' images
                     self.itemsRoot.children[id].children =
-                        self.loadedCategories()
+                        stubItems(randomlyTinted: true, titlePrefix: loadedItem.title)
 
                     self.reportItemsChanged()
                     break
                 }
             }
 
-            self.loadNextSectionImage()
+            self.loadNextImage()
         }
     }
+    */
 
 }
 

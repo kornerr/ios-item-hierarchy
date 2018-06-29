@@ -1,7 +1,12 @@
 
 import UIKit
 
-class SampleVC: UIViewController
+private func SAMPLE_VC_LOG(_ message: String)
+{
+    NSLog("SampleVC \(message)")
+}
+
+class SampleVC: UIViewController, UIGestureRecognizerDelegate
 {
 
     // MARK: - SETUP
@@ -12,6 +17,7 @@ class SampleVC: UIViewController
         self.updateSectionsView()
         self.updateCategoriesView()
         self.updateLoadingView()
+        self.setupSectionsCategoriesCollapse()
     }
     
     // MARK: - SECTIONS
@@ -88,6 +94,37 @@ class SampleVC: UIViewController
         }
         let isVisible = (self.loadingView != nil)
         self.loadingContainerView?.setVisible(isVisible, animated: true)
+    }
+
+    // MARK: - SECTIONS AND CATEGORIES COLLAPSE
+
+    private var collapsePanGR: UIPanGestureRecognizer!
+
+    private func setupSectionsCategoriesCollapse()
+    {
+        self.collapsePanGR =
+            UIPanGestureRecognizer(target: self, action: #selector(collapsePan(_:)))
+        self.collapsePanGR.delegate = self
+        self.view.addGestureRecognizer(self.collapsePanGR)
+    }
+
+    @objc func collapsePan(_ recognizer: UIPanGestureRecognizer)
+    {
+        SAMPLE_VC_LOG("TODO pan to collapse/expand")
+    }
+
+    func gestureRecognizerShouldBegin(
+        _ gestureRecognizer: UIGestureRecognizer
+    ) -> Bool {
+        guard
+            let recognizer = gestureRecognizer as? UIPanGestureRecognizer
+        else
+        {
+            return false
+        }
+        let translation = recognizer.translation(in: self.view)
+        // Prefer vertical pan.
+        return fabs(translation.y) > fabs(translation.x)
     }
     
 }
