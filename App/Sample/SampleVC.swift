@@ -66,6 +66,12 @@ class SampleVC: UIViewController, UIGestureRecognizerDelegate
         self.categoriesContainerView?.embeddedView = self.categoriesView
     }
     
+    // MARK: - PRODUCTS
+    
+    // TODO
+    
+    @IBOutlet private var productsContainerView: UIView!
+    
     // MARK: - LOADING
 
     @IBOutlet private var loadingContainerView: UIView?
@@ -98,7 +104,14 @@ class SampleVC: UIViewController, UIGestureRecognizerDelegate
 
     // MARK: - SECTIONS AND CATEGORIES COLLAPSE
 
+    private let collapseDelta: CGFloat = 50
+    private let collapseDuration: TimeInterval = 0.2
+    @IBOutlet private var expandedLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet private var contentView: UIView!
     private var collapsePanGR: UIPanGestureRecognizer!
+
+    private var collapse: SimpleCallback?
+    private var expand: SimpleCallback?
 
     private func setupSectionsCategoriesCollapse()
     {
@@ -106,11 +119,37 @@ class SampleVC: UIViewController, UIGestureRecognizerDelegate
             UIPanGestureRecognizer(target: self, action: #selector(collapsePan(_:)))
         self.collapsePanGR.delegate = self
         self.view.addGestureRecognizer(self.collapsePanGR)
+        self.setupCollapseExpansionHandling()
     }
 
     @objc func collapsePan(_ recognizer: UIPanGestureRecognizer)
     {
-        SAMPLE_VC_LOG("TODO pan to collapse/expand")
+        guard
+            let view = recognizer.view 
+        else
+        {
+            SAMPLE_VC_LOG("ERROR Gesture recognizer has no view. Cannot proceed")
+            return
+        }
+        let translation = recognizer.translation(in: view)
+        let doCollapse = (translation.y < 0)
+        if fabs(translation.y) > collapseDelta
+        {
+            // Report collapse.
+            if 
+                doCollapse,
+                let report = collapse
+            {
+                report()
+            }
+            // Report expansion.
+            if 
+                !doCollapse,
+                let report = expand
+            {
+                report()
+            }
+        }
     }
 
     func gestureRecognizerShouldBegin(
@@ -126,5 +165,46 @@ class SampleVC: UIViewController, UIGestureRecognizerDelegate
         // Prefer vertical pan.
         return fabs(translation.y) > fabs(translation.x)
     }
-    
+
+    private func setupCollapseExpansionHandling()
+    {
+        self.collapse = { [weak self] in
+            guard let this = self else { return }
+            this.performCollapse(true)
+        }
+        self.expand = { [weak self] in
+            guard let this = self else { return }
+            this.performCollapse(false)
+        }
+    }
+
+    private var isPerformingCollapse = false
+    private func performCollapse(_ collapse: Bool)
+    {
+        // Do nothing if already performing collapse.
+        if self.isPerformingCollapse
+        {
+            return
+        }
+        self.isPerformingCollapse = true
+
+        SAMPLE_VC_LOG("perform collapse '\(collapse)'")
+
+        // Change layout.
+        self.expandedLayoutConstraint.isActive = !collapse
+
+        // Animate.
+        let animations: SimpleCallback = { [weak self] in
+            self?.contentView.layoutIfNeeded()
+        }
+        let completion: (Bool) -> Void = { [weak self] _ in
+            self?.isPerformingCollapse = false
+        }
+        UIView.animate(
+            withDuration: self.collapseDuration,
+            animations: animations,
+            completion: completion
+        )
+    }
+
 }
