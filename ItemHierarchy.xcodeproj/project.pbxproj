@@ -47,12 +47,13 @@
 		9F4FEF3420E2602100E95E77 /* logo.cerberus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F4FEF3320E2602100E95E77 /* logo.cerberus.jpg */; };
 		9F4FEF3920E2635E00E95E77 /* UIView+Visibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4FEF3720E2635D00E95E77 /* UIView+Visibility.m */; };
 		9F6457E220E3B04D0078EEFD /* ConfigurableCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6457E120E3B04D0078EEFD /* ConfigurableCollectionViewLayout.m */; };
-		9F6457E520E3CC590078EEFD /* CategoriesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6457E420E3CC590078EEFD /* CategoriesItem.swift */; };
+		9F6457E520E3CC590078EEFD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6457E420E3CC590078EEFD /* Item.swift */; };
 		9F6457E720E3CC660078EEFD /* race.humans.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F6457E620E3CC660078EEFD /* race.humans.png */; };
 		9F6457EA20E3CFC00078EEFD /* CategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F6457E820E3CFBF0078EEFD /* CategoriesView.xib */; };
 		9F6457EB20E3CFC00078EEFD /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6457E920E3CFC00078EEFD /* CategoriesView.swift */; };
 		9F6457EE20E3D0240078EEFD /* CategoriesItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6457EC20E3D0230078EEFD /* CategoriesItemView.swift */; };
 		9F6457EF20E3D0240078EEFD /* CategoriesItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F6457ED20E3D0230078EEFD /* CategoriesItemView.xib */; };
+		9FAB2EA220E6591A00554846 /* Item+stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB2EA120E6591900554846 /* Item+stub.swift */; };
 		9FCAF78420E271CF0022CEEE /* blurred.logo.cerberus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9FCAF78320E271CF0022CEEE /* blurred.logo.cerberus.jpg */; };
 		9FCAF78620E27A710022CEEE /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCAF78520E27A710022CEEE /* CategoriesController.swift */; };
 /* End PBXBuildFile section */
@@ -110,12 +111,13 @@
 		9F4FEF3820E2635D00E95E77 /* UIView+Visibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Visibility.h"; sourceTree = "<group>"; };
 		9F6457E020E3B04D0078EEFD /* ConfigurableCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurableCollectionViewLayout.h; sourceTree = "<group>"; };
 		9F6457E120E3B04D0078EEFD /* ConfigurableCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurableCollectionViewLayout.m; sourceTree = "<group>"; };
-		9F6457E420E3CC590078EEFD /* CategoriesItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesItem.swift; sourceTree = "<group>"; };
+		9F6457E420E3CC590078EEFD /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		9F6457E620E3CC660078EEFD /* race.humans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = race.humans.png; sourceTree = "<group>"; };
 		9F6457E820E3CFBF0078EEFD /* CategoriesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesView.xib; sourceTree = "<group>"; };
 		9F6457E920E3CFC00078EEFD /* CategoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		9F6457EC20E3D0230078EEFD /* CategoriesItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesItemView.swift; sourceTree = "<group>"; };
 		9F6457ED20E3D0230078EEFD /* CategoriesItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesItemView.xib; sourceTree = "<group>"; };
+		9FAB2EA120E6591900554846 /* Item+stub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+stub.swift"; sourceTree = "<group>"; };
 		9FCAF78320E271CF0022CEEE /* blurred.logo.cerberus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blurred.logo.cerberus.jpg; sourceTree = "<group>"; };
 		9FCAF78520E27A710022CEEE /* CategoriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
 		D551FCCEBDDB227CD625BC43 /* Pods-ItemHierarchy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemHierarchy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItemHierarchy/Pods-ItemHierarchy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +175,8 @@
 				9F2A395D20E127AC005A60DA /* Sections */,
 				9F2A390F20E12450005A60DA /* AppDelegate.swift */,
 				9F2A395520E127A3005A60DA /* Coordinator.swift */,
+				9F6457E420E3CC590078EEFD /* Item.swift */,
+				9FAB2EA120E6591900554846 /* Item+stub.swift */,
 				9F2A395820E127A3005A60DA /* SimpleCallback.swift */,
 				9F2A391620E12451005A60DA /* Assets.xcassets */,
 				9F2A391820E12451005A60DA /* LaunchScreen.storyboard */,
@@ -273,7 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				9FCAF78520E27A710022CEEE /* CategoriesController.swift */,
-				9F6457E420E3CC590078EEFD /* CategoriesItem.swift */,
 				9F6457E820E3CFBF0078EEFD /* CategoriesView.xib */,
 				9F6457E920E3CFC00078EEFD /* CategoriesView.swift */,
 				9F6457ED20E3D0230078EEFD /* CategoriesItemView.xib */,
@@ -450,8 +453,9 @@
 				9FCAF78620E27A710022CEEE /* CategoriesController.swift in Sources */,
 				9F2A393B20E12728005A60DA /* UICollectionViewCellTemplate.swift in Sources */,
 				9F6457EE20E3D0240078EEFD /* CategoriesItemView.swift in Sources */,
+				9FAB2EA220E6591A00554846 /* Item+stub.swift in Sources */,
 				9F361E5720E52B19004999EC /* UIImage+tintedWithLinearGradientColors.swift in Sources */,
-				9F6457E520E3CC590078EEFD /* CategoriesItem.swift in Sources */,
+				9F6457E520E3CC590078EEFD /* Item.swift in Sources */,
 				9F2A395920E127A3005A60DA /* Coordinator.swift in Sources */,
 				9F2A395220E12740005A60DA /* CReflectionView.m in Sources */,
 				9F6457E220E3B04D0078EEFD /* ConfigurableCollectionViewLayout.m in Sources */,

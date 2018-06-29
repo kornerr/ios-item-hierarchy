@@ -1,13 +1,15 @@
 
-private func CATEGORIES_CONTROLLER_LOG(_ message: String)
+private func PRODUCTS_CONTROLLER_LOG(_ message: String)
 {
-    NSLog("CateogiresController \(message)")
+    NSLog("ProductsController \(message)")
 }
 
-class CategoriesController
+class ProductsController
 {
 
-    init() { }
+    init()
+    {
+    }
 
     // MARK: - PLACEHOLDER ITEM IMAGE
 
@@ -15,7 +17,7 @@ class CategoriesController
 
     // MARK: - ITEMS
 
-    var itemsRoot = Item("root")
+    var items = [Item]()]()
     var itemsChanged: SimpleCallback?
 
     private func reportItemsChanged()
@@ -58,23 +60,34 @@ class CategoriesController
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.loadItems()
             self.refreshIsExecuting = false
-            self.loadImages()
+
+            //self.loadImages()
         }
     }
 
     // MARK: - STUBS
 
+    private let races = [
+       "Asari",
+       "Drell",
+       "Elcor",
+       "Hanar",
+       "Humans",
+       "Keepers",
+       "Salarians",
+       "Turians",
+       "Volus",
+    ]
+
     private func loadItems()
     {
-        // Create sections and categories with placeholder image.
-        // Both sections and categories contain the same item set.
-        var sections = [Item]()
-        let sectionTitles = stubItemTitles()
-        for title in sectionTitles
+        // Create products with placeholder image.
+        let categories = self.races.map { return CategoriesItem($0, self.placeholderItemImage) }
+        var sections = [CategoriesItem]()
+        for race in self.races
         {
-            var section = Item(title, self.placeholderItemImage)
-            section.children =
-                stubItems(placeholderImage: self.placeholderItemImage, titlePrefix: title)
+            var section = CategoriesItem(race, self.placeholderItemImage)
+            section.children = categories
             sections.append(section)
         }
         self.itemsRoot.children = sections
@@ -82,22 +95,45 @@ class CategoriesController
         self.reportItemsChanged()
     }
 
-    private var loadedItemsRoot = Item("root")
+    private var loadedItemsRoot = CategoriesItem("root")
 
-    private func loadImages()
+    private func loadedSections(tintedColor: UIColor? = nil) -> [CategoriesItem]
     {
-        // Prepare sections with "loaded" images.
-        self.loadedItemsRoot.children = stubItems()
-        // Start loading.
-        self.loadNextImage()
+        return self.races.map {
+            let race = $0.lowercased()
+            let imageName = "race.\(race).png"
+            var image = UIImage(named: imageName)!
+            if let color = tintedColor
+            {
+                image = image.withRenderingMode(.alwaysTemplate)
+	            image = image.tintedWithLinearGradientColors(colorsArr: [color.cgColor, color.cgColor])
+            }
+            return CategoriesItem($0, image)
+        }
     }
 
-    private func loadNextImage()
+    private func loadedCategories() -> [CategoriesItem]
+    {
+        // Tint images with randomly generated tint color.
+        let red = CGFloat(arc4random_uniform(256)) / 256.0
+        let green = CGFloat(arc4random_uniform(256)) / 256.0
+        let blue = CGFloat(arc4random_uniform(256)) / 256.0
+        let color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+        return self.loadedSections(tintedColor: color)
+    }
+
+    private func loadSectionImages()
+    {
+        self.loadedItemsRoot.children = self.loadedSections()
+        self.loadNextSectionImage()
+    }
+
+    private func loadNextSectionImage()
     {
         // Make sure we have images to load.
         guard !self.loadedItemsRoot.children.isEmpty else { return }
 
-        // "Load" image with a delay.
+        // "Load" the first image from the array.
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             let loadedItem = self.loadedItemsRoot.children.remove(at: 0)
             for id in 0..<self.itemsRoot.children.count
@@ -108,14 +144,14 @@ class CategoriesController
                     self.itemsRoot.children[id].image = loadedItem.image
                     // Update section categories' images
                     self.itemsRoot.children[id].children =
-                        stubItems(randomlyTinted: true, titlePrefix: loadedItem.title)
+                        self.loadedCategories()
 
                     self.reportItemsChanged()
                     break
                 }
             }
 
-            self.loadNextImage()
+            self.loadNextSectionImage()
         }
     }
 

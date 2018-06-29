@@ -33,7 +33,7 @@ class CategoriesView:
 
     // MARK: - ITEMS
 
-    var items: [CategoriesItem]
+    var items: [Item]
     {
         get
         {
@@ -45,7 +45,7 @@ class CategoriesView:
             self.updateItems()
         }
     }
-    private var _items = [CategoriesItem]()
+    private var _items = [Item]()
 
     private func updateItems()
     {

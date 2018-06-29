@@ -1,7 +1,7 @@
 
 import UIKit
 
-struct CategoriesItem
+struct Item
 {
     init(_ title: String, _ image: UIImage? = nil)
     {
@@ -12,6 +12,6 @@ struct CategoriesItem
     var title = ""
     var image: UIImage?
 
-    var children = [CategoriesItem]()
+    var children = [Item]()
 }
 
