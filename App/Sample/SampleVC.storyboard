@@ -42,7 +42,7 @@
                                             <constraint firstAttribute="trailing" secondItem="vPk-jT-LaL" secondAttribute="trailing" id="Jb3-VJ-NEs"/>
                                             <constraint firstAttribute="bottom" secondItem="ypE-aQ-f6t" secondAttribute="bottom" id="MZV-uB-bJS"/>
                                             <constraint firstItem="vPk-jT-LaL" firstAttribute="height" secondItem="FjS-qv-Tdo" secondAttribute="height" multiplier="0.75" id="Nbh-bH-8SO"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="50" id="g99-5H-SCa"/>
+                                            <constraint firstAttribute="height" priority="750" id="g99-5H-SCa"/>
                                             <constraint firstItem="vPk-jT-LaL" firstAttribute="top" secondItem="FjS-qv-Tdo" secondAttribute="top" id="o3h-NV-Tby"/>
                                             <constraint firstAttribute="height" constant="450" id="v8y-1I-L2K"/>
                                             <constraint firstItem="ypE-aQ-f6t" firstAttribute="top" secondItem="vPk-jT-LaL" secondAttribute="bottom" id="yXC-f9-I2J"/>

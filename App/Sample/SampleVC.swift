@@ -17,7 +17,7 @@ class SampleVC: UIViewController, UIGestureRecognizerDelegate
         self.updateSectionsView()
         self.updateCategoriesView()
         self.updateLoadingView()
-        self.setupSectionsCategoriesCollapse()
+        self.setupSectionsCategoriesCollapseExpansion()
     }
     
     // MARK: - SECTIONS
@@ -104,75 +104,20 @@ class SampleVC: UIViewController, UIGestureRecognizerDelegate
 
     // MARK: - SECTIONS AND CATEGORIES COLLAPSE
 
-    private let collapseDelta: CGFloat = 50
-    private let collapseDuration: TimeInterval = 0.2
+    private var collapseExpansionDetector: CollapseExpansionDetector!
+    private let animationDuration: TimeInterval = 0.2
+
     @IBOutlet private var expandedLayoutConstraint: NSLayoutConstraint!
     @IBOutlet private var contentView: UIView!
-    private var collapsePanGR: UIPanGestureRecognizer!
 
-    private var collapse: SimpleCallback?
-    private var expand: SimpleCallback?
-
-    private func setupSectionsCategoriesCollapse()
+    private func setupSectionsCategoriesCollapseExpansion()
     {
-        self.collapsePanGR =
-            UIPanGestureRecognizer(target: self, action: #selector(collapsePan(_:)))
-        self.collapsePanGR.delegate = self
-        self.view.addGestureRecognizer(self.collapsePanGR)
-        self.setupCollapseExpansionHandling()
-    }
-
-    @objc func collapsePan(_ recognizer: UIPanGestureRecognizer)
-    {
-        guard
-            let view = recognizer.view 
-        else
-        {
-            SAMPLE_VC_LOG("ERROR Gesture recognizer has no view. Cannot proceed")
-            return
-        }
-        let translation = recognizer.translation(in: view)
-        let doCollapse = (translation.y < 0)
-        if fabs(translation.y) > collapseDelta
-        {
-            // Report collapse.
-            if 
-                doCollapse,
-                let report = collapse
-            {
-                report()
-            }
-            // Report expansion.
-            if 
-                !doCollapse,
-                let report = expand
-            {
-                report()
-            }
-        }
-    }
-
-    func gestureRecognizerShouldBegin(
-        _ gestureRecognizer: UIGestureRecognizer
-    ) -> Bool {
-        guard
-            let recognizer = gestureRecognizer as? UIPanGestureRecognizer
-        else
-        {
-            return false
-        }
-        let translation = recognizer.translation(in: self.view)
-        // Prefer vertical pan.
-        return fabs(translation.y) > fabs(translation.x)
-    }
-
-    private func setupCollapseExpansionHandling()
-    {
-        self.collapse = { [weak self] in
+        self.collapseExpansionDetector = CollapseExpansionDetector(trackedView: self.view)
+        self.collapseExpansionDetector.collapse = { [weak self] in
             guard let this = self else { return }
             this.performCollapse(true)
         }
-        self.expand = { [weak self] in
+        self.collapseExpansionDetector.expand = { [weak self] in
             guard let this = self else { return }
             this.performCollapse(false)
         }
@@ -201,7 +146,7 @@ class SampleVC: UIViewController, UIGestureRecognizerDelegate
             self?.isPerformingCollapse = false
         }
         UIView.animate(
-            withDuration: self.collapseDuration,
+            withDuration: self.animationDuration,
             animations: animations,
             completion: completion
         )
