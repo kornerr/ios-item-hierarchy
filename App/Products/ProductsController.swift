@@ -55,7 +55,7 @@ class ProductsController
 
         // Fake loading.
         self.refreshIsExecuting = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.loadItems()
             self.refreshIsExecuting = false
             self.loadImages()
