@@ -55,10 +55,10 @@ class ProductsController
 
         // Fake loading.
         self.refreshIsExecuting = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.loadItems()
             self.refreshIsExecuting = false
-            // TODO: self.loadImages()
+            self.loadImages()
         }
     }
 
@@ -72,13 +72,12 @@ class ProductsController
         self.reportItemsChanged()
     }
 
-    /*
-    private var loadedItemsRoot = Item("root")
+    private var loadedItems = [Item]()
 
     private func loadImages()
     {
         // Prepare sections with "loaded" images.
-        self.loadedItemsRoot.children = stubItems()
+        self.loadedItems = stubItems()
         // Start loading.
         self.loadNextImage()
     }
@@ -86,20 +85,17 @@ class ProductsController
     private func loadNextImage()
     {
         // Make sure we have images to load.
-        guard !self.loadedItemsRoot.children.isEmpty else { return }
+        guard !self.loadedItems.isEmpty else { return }
 
         // "Load" image with a delay.
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            let loadedItem = self.loadedItemsRoot.children.remove(at: 0)
-            for id in 0..<self.itemsRoot.children.count
+            let loadedItem = self.loadedItems.remove(at: 0)
+            for id in 0..<self.items.count
             {
-                if self.itemsRoot.children[id].title == loadedItem.title
+                if self.items[id].title == loadedItem.title
                 {
-                    // Update section image.
-                    self.itemsRoot.children[id].image = loadedItem.image
-                    // Update section categories' images
-                    self.itemsRoot.children[id].children =
-                        stubItems(randomlyTinted: true, titlePrefix: loadedItem.title)
+                    // Update image.
+                    self.items[id].image = loadedItem.image
 
                     self.reportItemsChanged()
                     break
@@ -109,7 +105,6 @@ class ProductsController
             self.loadNextImage()
         }
     }
-    */
 
 }
 

@@ -93,8 +93,6 @@ class SampleCoordinator: Coordinator
             // Display sections.
             let sections = this.categoriesController.itemsRoot.children
             this.sectionsView.items = sections
-            // Display selected section categories right after loading.
-            this.categoriesView.items = sections[this.sectionsView.selectedItemId].children
         }
 
         // Display selected section categories.
@@ -108,7 +106,6 @@ class SampleCoordinator: Coordinator
         self.categoriesView.selectedItemChanged = { [weak self] in
             guard let this = self else { return }
             // TODO request products of the specific category.
-            this.productsController.refresh()
         }
         // Request products of the selected category.
         self.productsController.itemsChanged = { [weak self] in
@@ -118,6 +115,9 @@ class SampleCoordinator: Coordinator
 
         // Request items.
         self.categoriesController.refresh()
+
+        // TODO request products of the specific category.
+        self.productsController.refresh()
     }
 
 }

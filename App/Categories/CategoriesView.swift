@@ -51,6 +51,9 @@ class CategoriesView:
     {
         // Display items.
         self.collectionView.reloadData()
+
+        // Report item selection.
+        self.reportItemSelection()
     }
     
     // MARK: - COLLECTION VIEW
@@ -132,15 +135,17 @@ class CategoriesView:
             guard let this = self else { return }
 
             CATEGORIES_VIEW_LOG("Selected category: '\(this.selectedItemId)'")
-
-            // Report selection.
-            if let report = this.selectedItemChanged
-            {
-                report()
-            }
+            this.reportItemSelection()
         }
     }
 
+    private func reportItemSelection()
+    {
+        if let report = self.selectedItemChanged
+        {
+            report()
+        }
+    }
 
 }
 

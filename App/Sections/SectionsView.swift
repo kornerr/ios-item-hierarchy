@@ -41,8 +41,9 @@ class SectionsView:
     {
         // Display items.
         self.collectionView.reloadData()
-
         self.updateTitle()
+        // Report selection.
+        self.reportItemSelection()
     }
     
     // MARK: - COLLECTION VIEW
@@ -130,14 +131,17 @@ class SectionsView:
             SECTIONS_VIEW_LOG("Selected section: '\(this.selectedItemId)'")
 
             this.updateTitle()
-            // Report selection.
-            if let report = this.selectedItemChanged
-            {
-                report()
-            }
+            this.reportItemSelection()
         }
     }
 
+    private func reportItemSelection()
+    {
+        if let report = self.selectedItemChanged
+        {
+            report()
+        }
+    }
 
 }
 
