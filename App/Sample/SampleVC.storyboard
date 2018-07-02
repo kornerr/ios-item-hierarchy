@@ -48,7 +48,7 @@
                                             <constraint firstItem="ypE-aQ-f6t" firstAttribute="top" secondItem="vPk-jT-LaL" secondAttribute="bottom" id="yXC-f9-I2J"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="hXl-Es-Eu8">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="hXl-Es-Eu8">
                                         <rect key="frame" x="0.0" y="450" width="320" height="98"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>

@@ -16,6 +16,7 @@ class SampleVC: UIViewController, UIGestureRecognizerDelegate
         super.viewDidLoad()
         self.updateSectionsView()
         self.updateCategoriesView()
+        self.updateProductsView()
         self.updateLoadingView()
         self.setupSectionsCategoriesCollapseExpansion()
     }
@@ -68,9 +69,26 @@ class SampleVC: UIViewController, UIGestureRecognizerDelegate
     
     // MARK: - PRODUCTS
     
-    // TODO
-    
     @IBOutlet private var productsContainerView: UIView!
+    
+    var productsView: UIView?
+    {
+        get
+        {
+            return _productsView
+        }
+        set
+        {
+            _productsView = newValue
+            self.updateProductsView()
+        }
+    }
+    private var _productsView: UIView?
+
+    private func updateProductsView()
+    {
+        self.productsContainerView?.embeddedView = self.productsView
+    }
     
     // MARK: - LOADING
 

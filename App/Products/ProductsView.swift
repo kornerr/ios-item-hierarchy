@@ -6,6 +6,15 @@ private func PRODUCTS_VIEW_LOG(_ message: String)
     NSLog("ProductsView \(message)")
 }
 
+// Make sure there's ITEM_INSET space between item and screen's edge
+private let ITEM_INSET: CGFloat = 10
+// Constants' explanation:
+// * 320 is iPhone 5/SE screen width
+// * 2 = two columns per row
+private let ITEM_WIDTH: CGFloat = 320 / 2 - ITEM_INSET * 2
+// Make item somewhat tall.
+private let ITEM_HEIGHT: CGFloat = ITEM_WIDTH * 1.2
+
 class ProductsView:
     UIView,
     UICollectionViewDataSource
@@ -18,12 +27,6 @@ class ProductsView:
         super.awakeFromNib()
         self.setupCollectionView()
     }
-
-    var items = [String]()
-
-    /*
-
-     TODO PROVIDE REAL items
 
     // MARK: - ITEMS
 
@@ -46,7 +49,6 @@ class ProductsView:
         // Display items.
         self.collectionView.reloadData()
     }
-    */
     
     // MARK: - COLLECTION VIEW
 
@@ -56,25 +58,13 @@ class ProductsView:
     {
         self.collectionView.register(Cell.self, forCellWithReuseIdentifier: CellId)
         self.collectionView.dataSource = self
-        
-        /*
-        TODO Use Pinterest-like layout
-        
+
         // Create and configure layout.
-        let layout = ConfigurableCollectionViewLayout()
-        layout.cellSize = ITEM_SIZE
-        layout.cellSpacing = CGFloat(ITEM_SPACING)
-        layout.darknessInterpolator = nil
-        layout.rotationInterpolator = nil
-        layout.scaleInterpolator = CInterpolator(dictionary: ITEM_SCALES).withReflection(false)
-        layout.positionoffsetInterpolator = CInterpolator(dictionary: ITEM_POSITIONS).withReflection(true)
-
-        // Keep layout.
-        self.collectionViewLayout = layout
-
-        // Provide layout to collection view.
-        self.collectionView.collectionViewLayout = self.collectionViewLayout!
-        */
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: ITEM_WIDTH, height: ITEM_HEIGHT)
+        let inset = ITEM_INSET
+        layout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        self.collectionView.collectionViewLayout = layout
     }
     
     func collectionView(
@@ -105,18 +95,11 @@ class ProductsView:
                 for: indexPath
             )
             as! Cell
-        /*
-
-        TODO
-
         let item = self.items[indexPath.row]
         cell.itemView.image = item.image
         cell.itemView.title = item.title.uppercased()
-        */
         return cell
     }
-
-    @IBOutlet private var titleLabel: UILabel?
 
     /*
     // MARK: - ITEM SELECTION

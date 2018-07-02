@@ -11,6 +11,7 @@ class SampleCoordinator: Coordinator
         super.init()
         self.setupSections()
         self.setupCategories()
+        self.setupProducts()
         self.setupLoading()
         self.setupSample()
     }
@@ -36,6 +37,20 @@ class SampleCoordinator: Coordinator
         self.categoriesController = CategoriesController()
         let image = UIImage(named: "blurred.logo.cerberus.jpg")!
         self.categoriesController.placeholderItemImage = image
+    }
+
+    // MARK: - PRODUCTS
+
+    private var productsView: ProductsView!
+    private var productsController: ProductsController!
+
+    private func setupProducts()
+    {
+        self.productsView = UIView.loadFromNib()
+
+        self.productsController = ProductsController()
+        let image = UIImage(named: "blurred.logo.cerberus.jpg")!
+        self.productsController.placeholderItemImage = image
     }
 
     // MARK: - LOADING
@@ -68,6 +83,7 @@ class SampleCoordinator: Coordinator
         self.sampleVC = storyboard.instantiateViewController(withIdentifier: "SampleVC") as! SampleVC
         self.sampleVC.sectionsView = self.sectionsView
         self.sampleVC.categoriesView = self.categoriesView
+        self.sampleVC.productsView = self.productsView
         // Display it.
         self.rootVC = self.sampleVC
 
@@ -86,6 +102,18 @@ class SampleCoordinator: Coordinator
             guard let this = self else { return }
             let sections = this.categoriesController.itemsRoot.children
             this.categoriesView.items = sections[this.sectionsView.selectedItemId].children
+        }
+
+        // Request products of the selected category.
+        self.categoriesView.selectedItemChanged = { [weak self] in
+            guard let this = self else { return }
+            // TODO request products of the specific category.
+            this.productsController.refresh()
+        }
+        // Request products of the selected category.
+        self.productsController.itemsChanged = { [weak self] in
+            guard let this = self else { return }
+            this.productsView.items = this.productsController.items
         }
 
         // Request items.

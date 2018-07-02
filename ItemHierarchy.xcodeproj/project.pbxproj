@@ -47,6 +47,10 @@
 		9F4FEF3420E2602100E95E77 /* logo.cerberus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F4FEF3320E2602100E95E77 /* logo.cerberus.jpg */; };
 		9F4FEF3920E2635E00E95E77 /* UIView+Visibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4FEF3720E2635D00E95E77 /* UIView+Visibility.m */; };
 		9F619C7520EA4469009EA021 /* CollapseExpansionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F619C7420EA4469009EA021 /* CollapseExpansionDetector.swift */; };
+		9F619C7A20EA480B009EA021 /* ProductsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F619C7620EA480B009EA021 /* ProductsItemView.xib */; };
+		9F619C7B20EA480B009EA021 /* ProductsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F619C7720EA480B009EA021 /* ProductsView.xib */; };
+		9F619C7C20EA480B009EA021 /* ProductsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F619C7820EA480B009EA021 /* ProductsItemView.swift */; };
+		9F619C7D20EA480B009EA021 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F619C7920EA480B009EA021 /* ProductsView.swift */; };
 		9F6457E220E3B04D0078EEFD /* ConfigurableCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6457E120E3B04D0078EEFD /* ConfigurableCollectionViewLayout.m */; };
 		9F6457E520E3CC590078EEFD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6457E420E3CC590078EEFD /* Item.swift */; };
 		9F6457E720E3CC660078EEFD /* race.humans.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F6457E620E3CC660078EEFD /* race.humans.png */; };
@@ -112,6 +116,10 @@
 		9F4FEF3720E2635D00E95E77 /* UIView+Visibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Visibility.m"; sourceTree = "<group>"; };
 		9F4FEF3820E2635D00E95E77 /* UIView+Visibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Visibility.h"; sourceTree = "<group>"; };
 		9F619C7420EA4469009EA021 /* CollapseExpansionDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapseExpansionDetector.swift; sourceTree = "<group>"; };
+		9F619C7620EA480B009EA021 /* ProductsItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductsItemView.xib; sourceTree = "<group>"; };
+		9F619C7720EA480B009EA021 /* ProductsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductsView.xib; sourceTree = "<group>"; };
+		9F619C7820EA480B009EA021 /* ProductsItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsItemView.swift; sourceTree = "<group>"; };
+		9F619C7920EA480B009EA021 /* ProductsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		9F6457E020E3B04D0078EEFD /* ConfigurableCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurableCollectionViewLayout.h; sourceTree = "<group>"; };
 		9F6457E120E3B04D0078EEFD /* ConfigurableCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurableCollectionViewLayout.m; sourceTree = "<group>"; };
 		9F6457E420E3CC590078EEFD /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -295,6 +303,10 @@
 			isa = PBXGroup;
 			children = (
 				9F6CC23F20E666F300DE8071 /* ProductsController.swift */,
+				9F619C7820EA480B009EA021 /* ProductsItemView.swift */,
+				9F619C7620EA480B009EA021 /* ProductsItemView.xib */,
+				9F619C7920EA480B009EA021 /* ProductsView.swift */,
+				9F619C7720EA480B009EA021 /* ProductsView.xib */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -383,10 +395,12 @@
 				9F6457EF20E3D0240078EEFD /* CategoriesItemView.xib in Resources */,
 				9F2A396720E127D5005A60DA /* SectionsView.xib in Resources */,
 				9F4FEF3020E24CE900E95E77 /* LoadingView.xib in Resources */,
+				9F619C7B20EA480B009EA021 /* ProductsView.xib in Resources */,
 				9F2A392C20E12719005A60DA /* race.elcor.png in Resources */,
 				9F2A396820E127D5005A60DA /* SectionsItemView.xib in Resources */,
 				9F2A393020E12719005A60DA /* race.salarians.png in Resources */,
 				9F2A392D20E12719005A60DA /* race.keepers.png in Resources */,
+				9F619C7A20EA480B009EA021 /* ProductsItemView.xib in Resources */,
 				9F2A392F20E12719005A60DA /* race.hanar.png in Resources */,
 				9F2A392E20E12719005A60DA /* race.volus.png in Resources */,
 			);
@@ -464,6 +478,7 @@
 				9F2A395320E12740005A60DA /* CBetterCollectionViewLayoutAttributes.m in Sources */,
 				9F2A393F20E12728005A60DA /* UIViewControllerTemplate.swift in Sources */,
 				9F2A395C20E127A3005A60DA /* SimpleCallback.swift in Sources */,
+				9F619C7C20EA480B009EA021 /* ProductsItemView.swift in Sources */,
 				9F2A396020E127CC005A60DA /* SampleCoordinator.swift in Sources */,
 				9FCAF78620E27A710022CEEE /* CategoriesController.swift in Sources */,
 				9F2A393B20E12728005A60DA /* UICollectionViewCellTemplate.swift in Sources */,
@@ -480,6 +495,7 @@
 				9F2A395420E12740005A60DA /* CInterpolator.mm in Sources */,
 				9F2A394020E12728005A60DA /* UIView+Embed.swift in Sources */,
 				9F2A397120E12B73005A60DA /* SampleVC.swift in Sources */,
+				9F619C7D20EA480B009EA021 /* ProductsView.swift in Sources */,
 				9F2A395120E12740005A60DA /* CCoverflowCollectionViewLayout.m in Sources */,
 				9F2A396620E127D5005A60DA /* SectionsView.swift in Sources */,
 				9F2A393C20E12728005A60DA /* UITableViewCellTemplate.swift in Sources */,
