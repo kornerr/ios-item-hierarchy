@@ -25,5 +25,14 @@ Images represent [Mass Effect races][me-races].
 
 Image loading is simulated.
 
+# Issues
+
+This is only an unpolished prototype with several issues/limitations:
+
+* sections and categories are not paginated
+* vertical pan gesture to collapse/expand products conflicts with products' scrolling
+    * one has to collapse/expand by panning outside products
+* there is no unlimited scrolling through products
+
 [preview]: preview.gif
 [me-races]: http://masseffect.wikia.com/wiki/Races
