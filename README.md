@@ -11,7 +11,7 @@ This is a sample iOS application to represent three levels of item hierarchy:
     * central (selected) item is enlarged
 * products
     * third level items
-    * accessed by swiping the sections and categories away
+    * accessed by collapsing sections and categories
 
 # Preview
 
@@ -29,7 +29,7 @@ Image loading is simulated.
 
 This is only an unpolished prototype with several issues/limitations:
 
-* sections and categories are not paginated
+* sections and categories are not correctly paginated
 * vertical pan gesture to collapse/expand products conflicts with products' scrolling
     * one has to collapse/expand by panning outside products
 * there is no unlimited scrolling through products
