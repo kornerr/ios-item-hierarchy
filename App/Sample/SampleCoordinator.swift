@@ -102,11 +102,13 @@ class SampleCoordinator: Coordinator
             this.categoriesView.items = sections[this.sectionsView.selectedItemId].children
         }
 
+        /*
         // Request products of the selected category.
         self.categoriesView.selectedItemChanged = { [weak self] in
             guard let this = self else { return }
             // TODO request products of the specific category.
         }
+        */
         // Request products of the selected category.
         self.productsController.itemsChanged = { [weak self] in
             guard let this = self else { return }
